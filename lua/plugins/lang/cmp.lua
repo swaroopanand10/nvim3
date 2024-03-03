@@ -17,6 +17,9 @@ local kind_icons = icons.kind
 vim.api.nvim_set_hl(0, 'CmpItemKindCopilot', { fg = '#6CC644' })
 
 cmp.setup({
+    completion = {
+        completeopt = 'menu,menuone,noinsert',
+    },
     snippet = {
         expand = function(args)
             luasnip.lsp_expand(args.body)
@@ -25,8 +28,8 @@ cmp.setup({
     mapping = {
         ['<C-k>'] = cmp.mapping.select_prev_item(),
         ['<C-j>'] = cmp.mapping.select_next_item(),
-        ['<C-b>'] = cmp.mapping(cmp.mapping.scroll_docs(-1), { 'i', 'c' }),
-        ['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(1), { 'i', 'c' }),
+        ['<C-p>'] = cmp.mapping(cmp.mapping.scroll_docs(-1), { 'i', 'c' }),
+        ['<C-n>'] = cmp.mapping(cmp.mapping.scroll_docs(1), { 'i', 'c' }),
         ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
         ['<C-u>'] = cmp.mapping.scroll_docs(-4),
         ['<C-d>'] = cmp.mapping.scroll_docs(4),
@@ -36,13 +39,14 @@ cmp.setup({
             c = cmp.mapping.close(),
         }),
         ['<CR>'] = cmp.mapping.confirm({
-            behavior = cmp.ConfirmBehavior.Replace,
-            select = false,
+            select = true,
         }),
+        ['<S-CR>'] = cmp.mapping.confirm({
+            behavior = cmp.ConfirmBehavior.Replace,
+            select = true,
+        }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
         ['<Tab>'] = cmp.mapping(function(fallback)
-            if cmp.visible() then
-                cmp.select_next_item()
-            elseif luasnip.expandable() then
+            if luasnip.expandable() then
                 luasnip.expand()
             elseif luasnip.expand_or_jumpable() then
                 luasnip.expand_or_jump()
@@ -54,9 +58,7 @@ cmp.setup({
             's',
         }),
         ['<S-Tab>'] = cmp.mapping(function(fallback)
-            if cmp.visible() then
-                cmp.select_prev_item()
-            elseif luasnip.jumpable(-1) then
+            if luasnip.jumpable(-1) then
                 luasnip.jump(-1)
             else
                 fallback()
@@ -79,23 +81,23 @@ cmp.setup({
             end
 
             vim_item.menu = ({
-                copilot = '[Copilot]',
                 nvim_lsp = '[LSP]',
                 luasnip = '[Snippet]',
                 buffer = '[Buffer]',
                 path = '[Path]',
+                neorg = '[neorg]',
             })[entry.source.name]
             return vim_item
         end,
     },
     sources = {
-        { name = 'copilot' },
         { name = 'nvim_lsp' },
         { name = 'buffer' },
         { name = 'nvim_lsp_signature_help' },
+        { name = 'luasnip' },
         { name = 'path' },
         { name = 'nvim_lua' },
-        { name = 'luasnip' },
+        { name = 'neorg' },
     },
     sorting = {
         priority_weight = 2,

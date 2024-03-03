@@ -187,11 +187,14 @@ local mappings = {
     f = {
         name = icons.ui.Telescope .. 'Find',
     },
+    k = {
+        name = icons.ui.Telescope .. 'Fzflua',
+    },
     j = {
         name = icons.ui.Telescope .. 'Find2',
-        c = { '<cmd>CccHighlighterToggle<cr>', 'Colorize' },
-        C = { '<cmd>CccConvert<cr>', 'Convert Color' },
-        p = { '<cmd>CccPick<cr>', 'Pick Color' },
+        -- c = { '<cmd>CccHighlighterToggle<cr>', 'Colorize' },
+        -- C = { '<cmd>CccConvert<cr>', 'Convert Color' },
+        -- p = { '<cmd>CccPick<cr>', 'Pick Color' },
     },
 
     s = {
@@ -391,11 +394,11 @@ local no_leader_opts = {
 }
 
 local no_leader_mappings = {
-    ['<S-h>'] = { '<cmd>bprevious<cr>', 'Previous Buffer' },
-    ['<S-l>'] = { '<cmd>bnext<cr>', 'Next Buffer' },
+    -- ['<S-h>'] = { '<cmd>bprevious<cr>', 'Previous Buffer' },
+    -- ['<S-l>'] = { '<cmd>bnext<cr>', 'Next Buffer' },
 
-    ['<C-f>'] = { '<cmd>Telescope find_files<cr>', 'Find Files' },
-    ['<C-g>'] = { '<cmd>Fterm lazygit<cr>', 'Lazygit' },
+    -- ['<C-f>'] = { '<cmd>Telescope find_files<cr>', 'Find Files' },
+    -- ['<C-g>'] = { '<cmd>Fterm lazygit<cr>', 'Lazygit' },
 
     ['['] = {
         name = icons.ui.ArrowLeft .. 'Previous',
@@ -415,7 +418,7 @@ local no_leader_mappings = {
     },
 
     ['#'] = { '<cmd>edit #<cr>', 'Alternate Buffer' },
-    -- K = { '<cmd>silent Lspsaga hover_doc<cr>', 'LSP Hover', silent = true },
+    K = { '<cmd>silent Lspsaga hover_doc<cr>', 'LSP saga Hover', silent = true }, -- added in keymaps folder
     U = { '<cmd>redo<cr>', 'Redo' },
 }
 

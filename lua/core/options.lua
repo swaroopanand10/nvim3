@@ -10,7 +10,7 @@ local options = {
     completeopt = 'menu,menuone,noselect', -- mostly just for cmp
     conceallevel = 0, -- so that `` is visible in markdown files
     confirm = true, -- Confirm to save changes before exiting modified buffer
-    cursorline = true, -- highlight the current line
+    -- cursorline = true, -- highlight the current line
     expandtab = true, -- convert tabs to spaces
     fileencoding = 'utf-8', -- the encoding written to a file
     formatoptions = 'jcroqlnt', -- tcqj
@@ -46,12 +46,12 @@ local options = {
     swapfile = false, -- creates a swapfile
     tabstop = 4, -- insert 2 spaces for a tab
     termguicolors = true, -- set term gui colors (most terminals support this)
-    timeoutlen = 150, -- time to wait for a mapped sequence to complete (in milliseconds)
-    -- ttimeoutlen = 10,
+    timeoutlen = 70, -- time to wait for a mapped sequence to complete (in milliseconds)
+    ttimeoutlen = 10,
     undofile = true, -- enable persistent undo
     undolevels = 10000,
     updatetime = 50, -- faster completion (4000ms default)
-    wildmenu = true, -- wildmenu
+    -- wildmenu = true, -- wildmenu
     -- wildmode = 'longest:full,full', -- Command-line completion mode
     winminwidth = 5, -- Minimum window width
     wrap = false, -- display lines as one long line
@@ -59,34 +59,34 @@ local options = {
     guicursor = 'n-v-c:block-Cursor,i-ci-ve:ver25-Cursor,r-cr-o:hor20-Cursor,a:blinkon100',
 }
 
-vim.cmd([[
-     setlocal spell spelllang=en "Set spellcheck language to en
-     setlocal spell! "Disable spell checks by default
-     filetype plugin indent on
-     if has('win32')
-        let g:python3_host_prog = $HOME . '/scoop/apps/python/current/python.exe'
-     endif
- ]])
+-- vim.cmd([[
+--      setlocal spell spelllang=en "Set spellcheck language to en
+--      setlocal spell! "Disable spell checks by default
+--      filetype plugin indent on
+--      if has('win32')
+--         let g:python3_host_prog = $HOME . '/scoop/apps/python/current/python.exe'
+--      endif
+--  ]])
 
 vim.opt.path:append({ '**' })
 
 -- Undercurl
-vim.cmd([[let &t_Cs = "\e[4:3m"]])
-vim.cmd([[let &t_Ce = "\e[4:0m"]])
+-- vim.cmd([[let &t_Cs = "\e[4:3m"]])
+-- vim.cmd([[let &t_Ce = "\e[4:0m"]])
 
 vim.opt.shortmess:append({ W = true, I = true, c = true })
 
-if vim.fn.has('nvim-0.9.0') == 1 then
-    vim.opt.splitkeep = 'screen'
-    vim.opt.shortmess:append({ C = true })
-end
+-- if vim.fn.has('nvim-0.9.0') == 1 then
+--     vim.opt.splitkeep = 'screen'
+--     vim.opt.shortmess:append({ C = true })
+-- end
 
 -- Fix markdown indentation settings
-vim.g.markdown_recommended_style = 0
+-- vim.g.markdown_recommended_style = 0
 
 for k, v in pairs(options) do
     vim.opt[k] = v
 end
 
-vim.cmd('set whichwrap+=<,>,[,],h,l')
-vim.cmd([[set iskeyword+=-]])
+-- vim.cmd('set whichwrap+=<,>,[,],h,l')
+-- vim.cmd([[set iskeyword+=-]])

@@ -207,6 +207,11 @@ local keys = {
         desc = 'Buffers',
     },
     {
+        '<leader>.',
+        '<cmd>Telescope buffers<cr>',
+        desc = 'Buffers',
+    },
+    {
         '<leader>fB',
         '<cmd>Telescope git_branches<cr>',
         desc = 'Checkout branch',
@@ -287,6 +292,11 @@ local keys = {
         desc = 'Checkout branch',
     },
     {
+        '<leader>/',
+        '<cmd>Telescope current_buffer_fuzzy_find<cr>',
+        desc = 'Checkout branch',
+    },
+    {
         '<leader>sG',
         '<cmd>lua require("telescope").extensions.menufacture.live_grep()<cr>',
         desc = 'live grep in cwd',
@@ -309,7 +319,7 @@ local keys = {
         desc = 'live grep in .git',
     },
     {
-        '<leader>/',
+        '<leader>,',
         function()
             local opts = {}
 

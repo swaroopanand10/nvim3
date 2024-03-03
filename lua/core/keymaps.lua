@@ -43,8 +43,8 @@ map('n', 'n', 'nzzzv', opts)
 map('n', 'N', 'Nzzzv', opts)
 
 -- Better up/down
-map('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
-map('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+-- map('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+-- map('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 
 -- Move text up and down
 map({ 'v', 'x' }, 'J', ":move '>+1<CR>gv-gv", opts)
@@ -92,6 +92,10 @@ map('n', '<A-e>', '<C-e>', opts)
 
 -- Switching to last buffer
 map('n', '<C-b>', '<C-6>', opts)
+
+-- Switching through buffers
+map('n', '<S-h>', '<cmd>bprevious<cr>', { desc = 'Previous Buffer', silent = true })
+map('n', '<S-l>', '<cmd>bnext<cr>', { desc = 'Previous Buffer', silent = true })
 
 -- Saving buffer using <ctrl-s>
 map('n', '<C-s>', ':w<cr>', opts)
@@ -158,6 +162,7 @@ end, { desc = 'toggle lineno on all windows', silent = true })
 
 -- Stopping lsp
 map('n', '<leader>jL', '<cmd>LspStop<cr>', { desc = 'stop lsp', silent = true })
+map('n', 'K', ':Lspsaga hover_doc<cr>', { desc = 'lspsaga hover doc', silent = true })
 
 -- Nvim-cmp goint to next line without selecting any entry
 map('i', '<A-cr>', '<c-j>', { desc = 'abort cmp then press enter', silent = true })

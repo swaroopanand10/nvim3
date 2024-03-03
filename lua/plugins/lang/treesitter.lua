@@ -45,43 +45,43 @@ configs.setup({
         },
     },
 
-    -- textsubjects = {
-    --     enable = true,
-    --     prev_selection = ',',
-    --     keymaps = {
-    --         ['.'] = { 'textsubjects-smart', desc = 'Select the current text subject' },
-    --         ['a;'] = {
-    --             'textsubjects-container-outer',
-    --             desc = 'Select outer container (class, function, etc.)',
-    --         },
-    --         ['i;'] = {
-    --             'textsubjects-container-inner',
-    --             desc = 'Select inside containers (classes, functions, etc.)',
-    --         },
-    --     },
-    -- },
-    --
-    -- refactor = {
-    --     highlight_definitions = {
-    --         enable = true,
-    --         clear_on_cursor_move = true,
-    --     },
-    --     highlight_current_scope = { enable = true },
-    --     smart_rename = {
-    --         enable = true,
-    --         keymaps = {
-    --             smart_rename = '<leader>rr',
-    --         },
-    --     },
-        -- navigation = {
-        --     enable = true,
-        --     keymaps = {
-        --         goto_definition = '<leader>rd',
-        --         list_definitions = '<leader>rl',
-        --         list_definitions_toc = '<leader>rh',
-        --         goto_next_usage = '<leader>rj',
-        --         goto_previous_usage = '<leader>rk',
-        --     },
-        -- },
-    -- },
+    textsubjects = {
+        enable = true,
+        prev_selection = ',',
+        keymaps = {
+            ['.'] = { 'textsubjects-smart', desc = 'Select the current text subject' },
+            ['a;'] = {
+                'textsubjects-container-outer',
+                desc = 'Select outer container (class, function, etc.)',
+            },
+            ['i;'] = {
+                'textsubjects-container-inner',
+                desc = 'Select inside containers (classes, functions, etc.)',
+            },
+        },
+    },
+
+    refactor = {
+        highlight_definitions = {
+            enable = true,
+            clear_on_cursor_move = true,
+        },
+        -- highlight_current_scope = { enable = true },
+        smart_rename = {
+            enable = true,
+            keymaps = {
+                smart_rename = '<leader>rr',
+            },
+        },
+        navigation = {
+            enable = true,
+            keymaps = {
+                goto_definition = '<leader>rd',
+                list_definitions = '<leader>rl',
+                list_definitions_toc = '<leader>rh',
+                goto_next_usage = '<leader>rj',
+                goto_previous_usage = '<leader>rk',
+            },
+        },
+    },
 })

@@ -17,13 +17,51 @@ onedark.setup({
     code_style = {
         comments = 'italic',
         keywords = 'none',
-        functions = 'none',
+        functions = 'italic',
+        -- functions = 'italic,bold',
         strings = 'none',
-        variables = 'none',
+        variables = 'italic',
     },
 
     lualine = { transparent = true },
     diagnostics = { darker = true, undercurl = true, background = false },
+    highlights = {
+        -- TSFunction = { fg = '#0000ff', sp = '$cyan', fmt = 'underline,italic' },
+        FlashBackdrop = { fg = '#545c7e' },
+        FlashLabel = {
+            bg = '#ff007c',
+            fmt = 'bold',
+            fg = '#ffffff',
+            -- fg = "#000000",
+        },
+        Cursor = { -- setting cursor colors(only work if vim.o.guicursor will be set in options)
+            bg = '#F92660',
+        },
+
+        StatusLine = {
+            bg = '#000000',
+            fg = '#000000',
+        },
+
+        StatusLineNC = {
+            bg = '#000000',
+            fg = '#000000',
+        },
+        TreesitterContextBottom = {
+            fmt = 'underline',
+        },
+        CursorLine = {
+            bg = '#000000',
+        },
+        FlashMatch = {
+            bg = '#000000',
+            fg = '#ffffff',
+        },
+        Search = {
+            bg = '#3E68D7',
+            fg = '#c8d3f5',
+        },
+    },
 })
 onedark.load()
 
@@ -32,3 +70,4 @@ vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
 vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'none' })
 vim.api.nvim_set_hl(0, 'FloatBorder', { bg = 'none' })
 vim.api.nvim_set_hl(0, 'Pmenu', { bg = 'none' })
+vim.api.nvim_set_hl(0, 'Cursor', { bg = '#F92660' })

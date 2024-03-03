@@ -58,12 +58,12 @@ local conditions = {
         return gitdir and #gitdir > 0 and #gitdir < #filepath
     end,
 }
-local searchcount = { 'searchcount', color = { fg = colors.fg, gui = 'bold' } }
-local selectioncount = { 'selectioncount', color = { fg = colors.fg, gui = 'bold' } }
+-- local searchcount = { 'searchcount', color = { fg = colors.fg, gui = 'bold' } }
+-- local selectioncount = { 'selectioncount', color = { fg = colors.fg, gui = 'bold' } }
 local progress = { 'progress', color = { fg = colors.fg, gui = 'bold' } }
 local filetype = { 'filetype', color = { fg = colors.blue, gui = 'bold' } }
 local filesize = { 'filesize', color = { fg = colors.fg, gui = 'bold' }, cond = conditions.buffer_not_empty }
-local fileformat = { 'fileformat', icons_enabled = true, color = { fg = colors.white, gui = 'bold' } }
+-- local fileformat = { 'fileformat', icons_enabled = true, color = { fg = colors.white, gui = 'bold' } }
 
 local filename = {
     'filename',
@@ -71,18 +71,18 @@ local filename = {
     color = { fg = colors.magenta, gui = 'bold' },
 }
 
-local buffers = {
-    'buffers',
-    filetype_names = {
-        TelescopePrompt = icons.ui.Telescope .. 'Telescope',
-        dashboard = icons.ui.Dashboard .. 'Dashboard',
-        lazy = icons.ui.Sleep .. 'Lazy',
-        mason = icons.ui.Package .. 'Mason',
-        NvimTree = icons.documents.OpenFolder .. 'Files',
-        spectre_panel = icons.ui.Search .. 'Spectre',
-    },
-    use_mode_colors = true,
-}
+-- local buffers = {
+--     'buffers',
+--     filetype_names = {
+--         TelescopePrompt = icons.ui.Telescope .. 'Telescope',
+--         dashboard = icons.ui.Dashboard .. 'Dashboard',
+--         lazy = icons.ui.Sleep .. 'Lazy',
+--         mason = icons.ui.Package .. 'Mason',
+--         NvimTree = icons.documents.OpenFolder .. 'Files',
+--         spectre_panel = icons.ui.Search .. 'Spectre',
+--     },
+--     use_mode_colors = true,
+-- }
 
 local branch = {
     'branch',
@@ -141,35 +141,35 @@ local lsp = {
     color = { fg = colors.fg, gui = 'bold' },
 }
 
-local encoding = {
-    'o:encoding',
-    fmt = string.upper,
-    cond = conditions.hide_in_width,
-    color = { fg = colors.green, gui = 'bold' },
-}
-
-local separator = {
-    function()
-        return icons.ui.Separator
-    end,
-    color = function()
-        return { fg = mode_color[vim.fn.mode()] }
-    end,
-    padding = { left = 0, right = 0 },
-}
-
-local function mode(icon)
-    icon = icon or icons.ui.NeoVim
-    return {
-        function()
-            return icon
-        end,
-        color = function()
-            return { fg = mode_color[vim.fn.mode()] }
-        end,
-        padding = { left = 1, right = 0 },
-    }
-end
+-- local encoding = {
+--     'o:encoding',
+--     fmt = string.upper,
+--     cond = conditions.hide_in_width,
+--     color = { fg = colors.green, gui = 'bold' },
+-- }
+--
+-- local separator = {
+--     function()
+--         return icons.ui.Separator
+--     end,
+--     color = function()
+--         return { fg = mode_color[vim.fn.mode()] }
+--     end,
+--     padding = { left = 0, right = 0 },
+-- }
+--
+-- local function mode(icon)
+--     icon = icon or icons.ui.NeoVim
+--     return {
+--         function()
+--             return icon
+--         end,
+--         color = function()
+--             return { fg = mode_color[vim.fn.mode()] }
+--         end,
+--         padding = { left = 1, right = 0 },
+--     }
+-- end
 
 local config = {
     options = {
@@ -182,20 +182,20 @@ local config = {
             'dashboard',
         },
     },
-    -- extensions = { 'quickfix', 'man', 'mason', 'lazy', 'toggleterm', 'nvim-tree' },
-    tabline = {
-        lualine_a = {},
-        lualine_b = { mode(), buffers },
-        lualine_c = {},
-        lualine_x = { diff_icons, branch },
-        lualine_y = { searchcount, selectioncount },
-        lualine_z = {},
-    },
+    extensions = { 'quickfix', 'man', 'mason', 'lazy', 'toggleterm', 'nvim-tree' },
+    -- tabline = {
+    --     lualine_a = {},
+    --     lualine_b = { mode(), buffers },
+    --     lualine_c = {},
+    --     lualine_x = { diff_icons, branch },
+    --     lualine_y = { searchcount, selectioncount },
+    --     lualine_z = {},
+    -- },
     sections = {
         lualine_a = {},
         lualine_b = {},
-        lualine_c = { separator, mode(icons.ui.Heart), 'location', progress, filename },
-        lualine_x = { diagnostics, lsp, filetype, filesize, fileformat, encoding, separator },
+        lualine_c = { filename, diff_icons, branch },
+        lualine_x = { diagnostics, lsp, filetype, 'location', progress, filesize},
         lualine_y = {},
         lualine_z = {},
     },

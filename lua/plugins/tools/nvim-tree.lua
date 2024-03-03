@@ -141,5 +141,6 @@ nvim_tree.setup({
         adaptive_size = true,
         number = false,
         relativenumber = false,
+        preserve_window_proportions = true,
     },
 })

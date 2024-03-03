@@ -3,9 +3,10 @@ if not status_ok then
     return
 end
 
+lsp_zero.extend_lspconfig()
 lsp_zero.on_attach(function(client, bufnr)
-    lsp_zero.default_keymaps({ buffer = bufnr })
-    -- lsp_zero.default_keymaps({ buffer = bufnr, exclude = { 'gl', 'K' } })
+    -- lsp_zero.default_keymaps({ buffer = bufnr })
+    lsp_zero.default_keymaps({ buffer = bufnr, exclude = { 'gl', 'K' } })
 end)
 
 local auto_install = require('lib.util').get_user_config('auto_install', true)
@@ -18,10 +19,45 @@ local cmp_nvim_lsp = require('cmp_nvim_lsp')
 
 require('lspconfig').clangd.setup({
     -- on_attach = on_attach,
+    on_attach = function(client, bufnr)
+        print('hello clangd')
+    end,
     capabilities = cmp_nvim_lsp.default_capabilities(),
     cmd = {
         'clangd',
         '--offset-encoding=utf-16',
+        '--background-index',
+        '--clang-tidy',
+        '--header-insertion=iwyu',
+        '--completion-style=detailed',
+        '--function-arg-placeholders',
+        '--fallback-style=llvm',
+    },
+    init_options = {
+        usePlaceholders = true,
+        completeUnimported = true,
+        clangdFileStatus = true,
+    },
+    root_dir = function(fname)
+        return require('lspconfig.util').root_pattern(
+            'Makefile',
+            'configure.ac',
+            'configure.in',
+            'config.h.in',
+            'meson.build',
+            'meson_options.txt',
+            'build.ninja'
+        )(fname) or require('lspconfig.util').root_pattern('compile_commands.json', 'compile_flags.txt')(fname) or
+        require(
+            'lspconfig.util'
+        ).find_git_ancestor(fname)
+    end,
+    setup = {
+        clangd = function(_, opts)
+            local clangd_ext_opts = require('lazyvim.util').opts('clangd_extensions.nvim')
+            require('clangd_extensions').setup(vim.tbl_deep_extend('force', clangd_ext_opts or {}, { server = opts }))
+            return false
+        end,
     },
 })
 
@@ -70,7 +106,7 @@ require('mason-lspconfig').setup({
             require('lspconfig').tsserver.setup({
                 single_file_support = true,
                 on_attach = function(client, bufnr)
-                    -- print('hello tsserver')
+                    print('hello tsserver')
                 end,
             })
         end,

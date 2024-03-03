@@ -37,7 +37,7 @@ null_ls.setup({
         -- format.rubocop,
         format.shfmt,
         format.stylua,
-        -- hover.dictionary,
+        hover.dictionary,
         hover.printenv,
     },
 })

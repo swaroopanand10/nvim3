@@ -39,14 +39,14 @@ local plugins = {
         cmd = { 'TodoTrouble', 'TodoTelescope' },
         event = 'BufEnter',
         config = true,
-         -- stylua: ignore
+        -- stylua: ignore
         keys = {
-          { "]t", function() require("todo-comments").jump_next() end, desc = "Next todo comment" },
-          { "[t", function() require("todo-comments").jump_prev() end, desc = "Previous todo comment" },
-          { "<leader>xt", "<cmd>TodoTrouble<cr>", desc = "Todo (Trouble)" },
-          { "<leader>xT", "<cmd>TodoTrouble keywords=TODO,FIX,FIXME<cr>", desc = "Todo/Fix/Fixme (Trouble)" },
-          { "<leader>st", "<cmd>TodoTelescope<cr>", desc = "Todo" },
-          { "<leader>sT", "<cmd>TodoTelescope keywords=TODO,FIX,FIXME<cr>", desc = "Todo/Fix/Fixme" },
+            { "]t",         function() require("todo-comments").jump_next() end, desc = "Next todo comment" },
+            { "[t",         function() require("todo-comments").jump_prev() end, desc = "Previous todo comment" },
+            { "<leader>xt", "<cmd>TodoTrouble<cr>",                              desc = "Todo (Trouble)" },
+            { "<leader>xT", "<cmd>TodoTrouble keywords=TODO,FIX,FIXME<cr>",      desc = "Todo/Fix/Fixme (Trouble)" },
+            { "<leader>st", "<cmd>TodoTelescope<cr>",                            desc = "Todo" },
+            { "<leader>sT", "<cmd>TodoTelescope keywords=TODO,FIX,FIXME<cr>",    desc = "Todo/Fix/Fixme" },
         },
     },
     {
@@ -79,8 +79,28 @@ local plugins = {
         event = { 'VeryLazy' },
     },
     {
-        'uga-rosa/ccc.nvim',
+        'uga-rosa/ccc.nvim', -- currently not working for some reason in every neovim
         cmd = { 'CccHighlighterToggle', 'CccConvert', 'CccPick' },
+        keys = {
+            {
+                '<leader>jC',
+                '<cmd>CccPick<cr>',
+                silent = true,
+                desc = 'Ccc Pick',
+            },
+            {
+                '<leader>jc',
+                '<cmd>CccHighlighterToggle<cr>',
+                silent = true,
+                desc = 'Ccc highlight toggle',
+            },
+            {
+                '<leader>jp',
+                '<cmd>CccPick<cr>',
+                silent = true,
+                desc = 'Ccc highlight toggle',
+            },
+        },
     },
     {
         'nvimdev/dashboard-nvim',
@@ -166,21 +186,35 @@ local plugins = {
         'nvim-treesitter/nvim-treesitter',
         build = ':TSUpdate',
         dependencies = {
-            -- 'nvim-treesitter/nvim-treesitter-refactor',
+            'nvim-treesitter/nvim-treesitter-refactor',
             'nvim-treesitter/nvim-treesitter-textobjects',
-            -- 'RRethy/nvim-treesitter-endwise',
-            -- 'RRethy/nvim-treesitter-textsubjects',
+            'RRethy/nvim-treesitter-endwise',
+            'RRethy/nvim-treesitter-textsubjects',
             'windwp/nvim-ts-autotag',
+            -- 'nvim-treesitter/nvim-treesitter-context',
         },
         config = load_config('lang.treesitter'),
         -- event = { 'BufReadPre', 'BufNewFile' },
         -- event = { 'BufReadPost', 'BufWritePost', 'BufNewFile' },
         event = { 'VeryLazy' },
     },
-    -- {
-    --     'ckolkey/ts-node-action',
-    --     dependencies = { 'nvim-treesitter' },
-    -- },
+    {
+        'nvim-treesitter/nvim-treesitter-context',
+        event = 'VeryLazy',
+        enabled = true,
+        opts = { mode = 'cursor', max_lines = 3 },
+        keys = {
+            {
+                '<leader>ut',
+                '<cmd>TSContextToggle<cr>',
+                desc = 'Toggle Treesitter Context',
+            },
+        },
+    },
+    {
+        'ckolkey/ts-node-action',
+        dependencies = { 'nvim-treesitter' },
+    },
 
     -- LSP
     {
@@ -333,7 +367,7 @@ local plugins = {
         'echasnovski/mini.surround',
         opts = {
             mappings = {
-                add = ';;',
+                add = ';a',
                 delete = ';d',
                 find = ';f',
                 find_left = ';F',
@@ -342,7 +376,7 @@ local plugins = {
                 update_n_lines = ';n',
             },
         },
-        keys = { ';;', ';r', ';d', ';h', ';n', ';f', ';F' },
+        keys = { ';a', ';r', ';d', ';h', ';n', ';f', ';F' },
     },
     {
         'windwp/nvim-autopairs',
@@ -372,7 +406,7 @@ local plugins = {
     {
         'folke/which-key.nvim',
         config = load_config('tools.which-key'),
-        keys = { '<space>' },
+        keys = { '<space>', 'g', ']', '[', 's', "'", '"' },
         -- event = 'VeryLazy',
     },
     -- {
