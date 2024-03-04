@@ -10,6 +10,11 @@ end
 
 require('luasnip/loaders/from_vscode').lazy_load()
 
+-- Loading custom plugins here
+require('luasnip.loaders.from_vscode').lazy_load({
+    paths = vim.fn.stdpath('config') .. '/snippets',
+})
+
 local compare = require('cmp.config.compare')
 
 local icons = require('lib.icons')
@@ -26,13 +31,17 @@ cmp.setup({
         end,
     },
     mapping = {
-        ['<C-k>'] = cmp.mapping.select_prev_item(),
-        ['<C-j>'] = cmp.mapping.select_next_item(),
-        ['<C-p>'] = cmp.mapping(cmp.mapping.scroll_docs(-1), { 'i', 'c' }),
-        ['<C-n>'] = cmp.mapping(cmp.mapping.scroll_docs(1), { 'i', 'c' }),
+        ['<C-j>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
+        ['<C-k>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
         ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
-        ['<C-u>'] = cmp.mapping.scroll_docs(-4),
-        ['<C-d>'] = cmp.mapping.scroll_docs(4),
+        -- ['<C-k>'] = cmp.mapping.select_prev_item(),
+        -- ['<C-j>'] = cmp.mapping.select_next_item(),
+        -- ['<C-p>'] = cmp.mapping(cmp.mapping.scroll_docs(-1), { 'i', 'c' }),
+        -- ['<C-n>'] = cmp.mapping(cmp.mapping.scroll_docs(1), { 'i', 'c' }),
+        -- ['<C-b>'] = cmp.mapping.scroll_docs(-3),
+        -- ['<C-f>'] = cmp.mapping.scroll_docs(3),
+        ['<C-p>'] = cmp.mapping.scroll_docs(-4),
+        ['<C-n>'] = cmp.mapping.scroll_docs(4),
         ['<C-y>'] = cmp.config.disable,
         ['<C-c>'] = cmp.mapping({
             i = cmp.mapping.abort(),

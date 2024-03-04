@@ -37,7 +37,6 @@ local options = {
     showtabline = 0, -- always show tabs
     si = true,
     sidescrolloff = 8,
-    signcolumn = 'yes', -- always show the sign column, otherwise it would shift the text each time
     smartcase = true, -- smart case
     smartindent = true, -- make indenting smarter again
     smarttab = true,
@@ -51,6 +50,8 @@ local options = {
     undofile = true, -- enable persistent undo
     undolevels = 10000,
     updatetime = 50, -- faster completion (4000ms default)
+    -- statuscolumn = '%=%{v:relnum?v:relnum:v:lnum} %s',
+    signcolumn = 'yes:2',
     -- wildmenu = true, -- wildmenu
     -- wildmode = 'longest:full,full', -- Command-line completion mode
     winminwidth = 5, -- Minimum window width

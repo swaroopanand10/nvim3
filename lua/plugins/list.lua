@@ -37,7 +37,7 @@ local plugins = {
     {
         'folke/todo-comments.nvim',
         cmd = { 'TodoTrouble', 'TodoTelescope' },
-        event = 'BufEnter',
+        event = 'VeryLazy',
         config = true,
         -- stylua: ignore
         keys = {
@@ -113,14 +113,6 @@ local plugins = {
         end,
         cmd = 'Dashboard',
     },
-    -- {
-    --     'gelguy/wilder.nvim',
-    --     build = function()
-    --         vim.cmd([[silent UpdateRemotePlugins]])
-    --     end,
-    --     config = load_config('ui.wilder'),
-    --     keys = { ':', '/', '?' },
-    -- },
     {
         'folke/noice.nvim',
         event = 'VeryLazy',
@@ -191,7 +183,6 @@ local plugins = {
             'RRethy/nvim-treesitter-endwise',
             'RRethy/nvim-treesitter-textsubjects',
             'windwp/nvim-ts-autotag',
-            -- 'nvim-treesitter/nvim-treesitter-context',
         },
         config = load_config('lang.treesitter'),
         -- event = { 'BufReadPre', 'BufNewFile' },
@@ -238,6 +229,11 @@ local plugins = {
         'nvimdev/lspsaga.nvim',
         config = load_config('lang.lspsaga'),
         event = 'LspAttach',
+    },
+    {
+        'stevearc/conform.nvim',
+        config = load_configs('lang.conform').config,
+        keys = load_configs('lang.conform').keys,
     },
     -- {
     --     'Maan2003/lsp_lines.nvim',
@@ -296,9 +292,22 @@ local plugins = {
         keys = load_configs('tools.harpoon').keys,
     },
     {
+        'chentoast/marks.nvim',
+        event = 'VeryLazy',
+        config = load_configs('tools.marks').config,
+        -- keys = load_configs('tools.marks').keys,
+        -- keys = { 'm' },
+    },
+    {
         'echasnovski/mini.files',
         config = load_configs('tools.minifiles').config,
         keys = load_configs('tools.minifiles').keys,
+    },
+    {
+        'akinsho/toggleterm.nvim',
+        config = load_configs('tools.toggleterm').config,
+        cmd = 'ToggleTerm',
+        keys = { { '<c-\\>', '<cmd>ToggleTerm<cr>', desc = 'Toggle floating terminal' } },
     },
     {
         's1n7ax/nvim-window-picker',
@@ -328,6 +337,11 @@ local plugins = {
             },
         },
     },
+    -- {
+    --     'olimorris/persisted.nvim',
+    --     event = 'BufEnter',
+    --     config = load_config('tools.persisted'),
+    -- },
     {
         'numToStr/Comment.nvim',
         config = load_config('tools.comment'),
@@ -395,8 +409,9 @@ local plugins = {
     },
     {
         'folke/flash.nvim',
-        config = load_configs('tools.flash').config,
+        -- event = 'VeryLazy',
         keys = load_configs('tools.flash').keys,
+        config = load_configs('tools.flash').config,
     },
     -- {
     --     'chrisgrieser/nvim-spider',
@@ -406,7 +421,8 @@ local plugins = {
     {
         'folke/which-key.nvim',
         config = load_config('tools.which-key'),
-        keys = { '<space>', 'g', ']', '[', 's', "'", '"' },
+        keys = { '<space>', 'g', ']', '[', "'", '"', 'd', 'm', ';', 'v' },
+        -- keys = { '[a-z]' },
         -- event = 'VeryLazy',
     },
     -- {

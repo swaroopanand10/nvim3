@@ -392,11 +392,11 @@ local keys = {
         '<cmd>Telescope loclist<cr>',
         desc = 'Location List',
     },
-    {
-        '<leader>sp',
-        '<cmd>Telescope<cr>',
-        desc = 'Panel',
-    },
+    -- {
+    --     '<leader>sp',
+    --     '<cmd>Telescope<cr>',
+    --     desc = 'Panel',
+    -- },
     {
         '<leader>sq',
         '<cmd>Telescope quickfix<cr>',

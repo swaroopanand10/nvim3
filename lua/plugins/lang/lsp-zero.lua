@@ -7,6 +7,9 @@ lsp_zero.extend_lspconfig()
 lsp_zero.on_attach(function(client, bufnr)
     -- lsp_zero.default_keymaps({ buffer = bufnr })
     lsp_zero.default_keymaps({ buffer = bufnr, exclude = { 'gl', 'K' } })
+    vim.keymap.set('n', 'gK', vim.lsp.buf.signature_help, { buffer = bufnr })
+    vim.keymap.set('i', '<c-K>', vim.lsp.buf.signature_help, { buffer = bufnr })
+    vim.keymap.set('n', 'K', ':Lspsaga hover_doc<cr>', { desc = 'lspsaga hover doc', silent = true })
 end)
 
 local auto_install = require('lib.util').get_user_config('auto_install', true)
@@ -14,15 +17,17 @@ local installed_servers = {}
 if auto_install then
     installed_servers = require('plugins.list').lsp_servers
 end
+-- local icons = require('lib.icons')
+local diagnostic_signs = require('lib.icons').diagnostics
+for type, icon in pairs(diagnostic_signs) do
+    local hl = 'DiagnosticSign' .. type
+    vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = '' })
+end
 
-local cmp_nvim_lsp = require('cmp_nvim_lsp')
-
+-- local cmp_nvim_lsp = require('cmp_nvim_lsp')
 require('lspconfig').clangd.setup({
     -- on_attach = on_attach,
-    on_attach = function(client, bufnr)
-        print('hello clangd')
-    end,
-    capabilities = cmp_nvim_lsp.default_capabilities(),
+    -- capabilities = cmp_nvim_lsp.default_capabilities(),
     cmd = {
         'clangd',
         '--offset-encoding=utf-16',
@@ -47,8 +52,7 @@ require('lspconfig').clangd.setup({
             'meson.build',
             'meson_options.txt',
             'build.ninja'
-        )(fname) or require('lspconfig.util').root_pattern('compile_commands.json', 'compile_flags.txt')(fname) or
-        require(
+        )(fname) or require('lspconfig.util').root_pattern('compile_commands.json', 'compile_flags.txt')(fname) or require(
             'lspconfig.util'
         ).find_git_ancestor(fname)
     end,
@@ -105,9 +109,6 @@ require('mason-lspconfig').setup({
         tsserver = function()
             require('lspconfig').tsserver.setup({
                 single_file_support = true,
-                on_attach = function(client, bufnr)
-                    print('hello tsserver')
-                end,
             })
         end,
     },

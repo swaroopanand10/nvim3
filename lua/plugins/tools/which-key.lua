@@ -33,6 +33,8 @@ local setup = {
             nav = true,
             z = true,
             g = true,
+            m = true,
+            [';'] = true,
         },
     },
     key_labels = {
@@ -49,11 +51,11 @@ local setup = {
         scroll_up = '<c-u>',
     },
     window = {
-        border = 'shadow',
+        border = 'none',
         position = 'bottom',
         margin = { 0, 0, 0, 0 },
         padding = { 1, 2, 1, 2 },
-        winblend = 10,
+        winblend = 0,
     },
     layout = {
         height = { min = 4, max = 24 },
@@ -80,7 +82,8 @@ local setup = {
     },
     triggers_blacklist = {
         i = { 'j', 'j' },
-        v = { 'j', 'j' },
+        v = { 'j', 'j', 'k', 'l' },
+        n = { 'k', 'l', 'j' },
     },
 }
 
@@ -199,6 +202,8 @@ local mappings = {
 
     s = {
         name = icons.ui.Telescope .. 'search',
+        p = { '<cmd>Lspsaga peek_definition<cr>', 'Peek Definition' },
+        P = { '<cmd>Lspsaga goto_definition<cr>', 'Goto Definition' },
     },
 
     g = {
@@ -207,11 +212,11 @@ local mappings = {
         A = { '<cmd>Gitsigns stage_buffer<cr>', 'Stage Buffer' },
         b = { '<cmd>Gitsigns blame_line<cr>', 'Blame' },
         c = { '<cmd>Git<cr>', 'Commit' },
-        C = { '<cmd>CoAuthor<cr>', 'Add Co Author' },
+        -- C = { '<cmd>CoAuthor<cr>', 'Add Co Author' },
         d = { '<cmd>Gitsigns preview_hunk<cr>', 'Preview Hunk' },
         D = { '<cmd>Gitsigns diffthis HEAD<cr>', 'Diff' },
-        g = { '<cmd>Fterm lazygit<cr>', 'Lazygit' },
-        h = { '<cmd>Octo<cr>', 'Octo' },
+        g = { '<cmd>ToggleTerm lazygit<cr>', 'Lazygit' },
+        -- h = { '<cmd>Octo<cr>', 'Octo' },
         j = { '<cmd>Gitsigns next_hunk<cr>', 'Next Hunk' },
         k = { '<cmd>Gitsigns prev_hunk<cr>', 'Prev Hunk' },
         r = { '<cmd>Gitsigns reset_hunk<cr>', 'Reset Hunk' },
@@ -236,14 +241,14 @@ local mappings = {
     c = {
         name = icons.ui.Gear .. 'LSP',
         a = { '<cmd>Lspsaga code_action<cr>', 'Code Action' },
-        d = { '<cmd>Lspsaga peek_definition<cr>', 'Peek Definition' },
-        D = { '<cmd>Lspsaga goto_definition<cr>', 'Goto Definition' },
-        f = { '<cmd>LspZeroFormat<cr>', 'Format' },
+        d = { '<cmd>Lspsaga show_cursor_diagnostics <cr>', 'show cursor diagnostic' },
+        D = { '<cmd>Lspsaga show_line_diagnostics <cr>', 'show line diagnostic' },
+        -- f = { '<cmd>LspZeroFormat<cr>', 'Format' },
         g = { '<cmd>Lspsaga finder<cr>', 'Finder' },
         G = { '<cmd>Telescope lsp_references<cr>', 'References' },
         h = { '<cmd>Lspsaga hover_doc<cr>', 'Hover' },
-        i = { '<cmd>Telescope diagnostics<cr>', 'Diagnostics' },
-        I = { '<cmd>Lspsaga show_workspace_diagnostics<cr>', 'Diagnostics' },
+        i = { '<cmd>Lspsaga show_buf_diagnostics<cr>', 'buffer Diagnostics' },
+        I = { '<cmd>Lspsaga show_workspace_diagnostics<cr>', 'workspace Diagnostics' },
         j = { '<cmd>Lspsaga diagnostic_jump_next<cr>', 'Next Diagnostic' },
         k = { '<cmd>Lspsaga diagnostic_jump_prev<cr>', 'Prev Diagnostic' },
         l = { "<cmd>lua require('lsp_lines').toggle()<cr>", 'Toggle LSP Lines' },
@@ -257,6 +262,7 @@ local mappings = {
         S = { '<cmd>Telescope lsp_dynamic_workspace_symbols<cr>', 'Workspace Symbols' },
         t = { '<cmd>Lspsaga peek_type_definition<cr>', 'Peek Type Definition' },
         T = { '<cmd>Lspsaga goto_type_definition<cr>', 'Goto Type Definition' },
+        w = { '<cmd>Lspsaga winbar_toggle <cr>', 'toggle winbar' },
     },
     l = {
         name = icons.ui.Package .. 'Packages',

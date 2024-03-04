@@ -25,9 +25,9 @@ local keys = {
         icons = {
             DEBUG = icons.ui.Bug,
             ERROR = icons.diagnostics.Error,
-            INFO = icons.diagnostics.Information,
+            INFO = icons.diagnostics.Info,
             TRACE = icons.ui.Bookmark,
-            WARN = icons.diagnostics.Warning,
+            WARN = icons.diagnostics.Warn,
         },
         level = 2,
         minimum_width = 50,

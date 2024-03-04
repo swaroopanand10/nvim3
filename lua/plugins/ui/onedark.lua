@@ -18,7 +18,6 @@ onedark.setup({
         comments = 'italic',
         keywords = 'none',
         functions = 'italic',
-        -- functions = 'italic,bold',
         strings = 'none',
         variables = 'italic',
     },
@@ -61,6 +60,23 @@ onedark.setup({
             bg = '#3E68D7',
             fg = '#c8d3f5',
         },
+        DiagnosticWarn = {
+            fg = '#ff966c',
+        },
+        DiagnosticError = {
+            fg = '#ff0000',
+        },
+        DiagnosticVirtualTextWarn = {
+            fg = '#ff966c',
+        },
+        PmenuSel = {
+            fg = '#e0def4',
+            bg = '#393552',
+        },
+        -- looked fine before it
+        -- DiagnosticVirtualTextError = {
+        --     fg = '#ff0000',
+        -- },
     },
 })
 onedark.load()

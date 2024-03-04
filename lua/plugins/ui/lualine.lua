@@ -19,28 +19,28 @@ local colors = {
     red = '#ec5f67',
 }
 
-local mode_color = {
-    n = colors.green,
-    i = colors.blue,
-    v = colors.magenta,
-    [''] = colors.magenta,
-    V = colors.magenta,
-    c = colors.yellow,
-    t = colors.red,
-    R = colors.orange,
-    Rv = colors.orange,
-    no = colors.fg,
-    s = colors.violet,
-    S = colors.violet,
-    [''] = colors.violet,
-    ic = colors.yellow,
-    cv = colors.red,
-    ce = colors.red,
-    r = colors.cyan,
-    rm = colors.cyan,
-    ['r?'] = colors.cyan,
-    ['!'] = colors.red,
-}
+-- local mode_color = {
+--     n = colors.green,
+--     i = colors.blue,
+--     v = colors.magenta,
+--     [''] = colors.magenta,
+--     V = colors.magenta,
+--     c = colors.yellow,
+--     t = colors.red,
+--     R = colors.orange,
+--     Rv = colors.orange,
+--     no = colors.fg,
+--     s = colors.violet,
+--     S = colors.violet,
+--     [''] = colors.violet,
+--     ic = colors.yellow,
+--     cv = colors.red,
+--     ce = colors.red,
+--     r = colors.cyan,
+--     rm = colors.cyan,
+--     ['r?'] = colors.cyan,
+--     ['!'] = colors.red,
+-- }
 
 local conditions = {
     buffer_not_empty = function()
@@ -109,8 +109,8 @@ local diagnostics = {
     sources = { 'nvim_lsp', 'nvim_diagnostic', 'nvim_workspace_diagnostic' },
     symbols = {
         error = icons.diagnostics.Error,
-        warn = icons.diagnostics.Warning,
-        info = icons.diagnostics.Information,
+        warn = icons.diagnostics.Warn,
+        info = icons.diagnostics.Info,
         hint = icons.diagnostics.Hint,
     },
     diagnostics_color = {
@@ -176,7 +176,7 @@ local config = {
         component_separators = '',
         -- section_separators = '',
         -- theme = 'rose-pine',
-        theme = 'onedark',
+        -- theme = 'onedark',
         -- theme = 'tokyonight',
         disabled_filetypes = {
             'dashboard',

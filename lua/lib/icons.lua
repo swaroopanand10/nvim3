@@ -2,9 +2,9 @@ return {
     diagnostics = {
         Error = ' ',
         Hint = '󰌵 ',
-        Information = ' ',
+        Info = ' ',
         Question = ' ',
-        Warning = ' ',
+        Warn = ' ',
     },
     documents = {
         File = ' ',

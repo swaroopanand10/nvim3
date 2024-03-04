@@ -18,7 +18,7 @@ local config = function()
         modes = {
             char = {
                 jump_labels = false,
-                keys = { 'f', 'F', 't', 'T' },
+                keys = { 's', 'S', 'f', 'F', 't', 'T' },
             },
             search = {
                 -- enabled = false,
