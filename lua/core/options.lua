@@ -28,7 +28,7 @@ local options = {
     pumblend = 10, -- Popup blen
     pumheight = 10, -- pop up menu height
     relativenumber = false, -- set relative numbered lines
-    scrolloff = 10, -- is one of my fav
+    scrolloff = 4, -- will keep atleast 4 line above and below the cursorline
     sessionoptions = 'blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal',
     shiftround = true, -- Round indent
     shiftwidth = 4, -- the number of spaces inserted for each indentation
@@ -51,7 +51,7 @@ local options = {
     undolevels = 10000,
     updatetime = 50, -- faster completion (4000ms default)
     -- statuscolumn = '%=%{v:relnum?v:relnum:v:lnum} %s',
-    signcolumn = 'yes:2',
+    signcolumn = 'yes:3',
     -- wildmenu = true, -- wildmenu
     -- wildmode = 'longest:full,full', -- Command-line completion mode
     winminwidth = 5, -- Minimum window width

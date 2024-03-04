@@ -421,7 +421,7 @@ local plugins = {
     {
         'folke/which-key.nvim',
         config = load_config('tools.which-key'),
-        keys = { '<space>', 'g', ']', '[', "'", '"', 'd', 'm', ';', 'v' },
+        keys = { '<space>', 'g', ']', '[', "'", '"', 'd', 'm', ';', 'v', 'j', 'k' },
         -- keys = { '[a-z]' },
         -- event = 'VeryLazy',
     },
@@ -515,6 +515,7 @@ local ts_parsers = {
 local lsp_servers = {
     'bashls',
     'eslint',
+    'pyright',
     -- 'elixirls',
     'jsonls',
     'lua_ls',
