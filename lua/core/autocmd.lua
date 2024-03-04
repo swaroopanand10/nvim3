@@ -200,3 +200,9 @@ vim.api.nvim_create_autocmd({ 'FileType' }, {
         )
     end,
 })
+vim.api.nvim_create_autocmd({ 'FileType' }, {
+    pattern = { 'norg' },
+    callback = function()
+      require('treesitter-context').setup({enable=false})
+    end,
+})

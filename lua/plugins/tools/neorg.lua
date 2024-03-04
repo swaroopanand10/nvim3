@@ -113,7 +113,9 @@ local opts = {
                     js = '~/notes/js',
                     css = '~/notes/css',
                 },
-                default_workspace = 'notes',
+                default_workspace = nil, -- doing this is best as it puts us in workspace of current dir
+                index = 'index.norg',
+                -- open_last_workspace = true, -- not working
             },
         },
         ['core.integrations.telescope'] = {},
