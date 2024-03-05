@@ -206,3 +206,12 @@ vim.api.nvim_create_autocmd({ 'FileType' }, {
       require('treesitter-context').setup({enable=false})
     end,
 })
+
+-- Disable autoformat for all files (not needed now)
+-- vim.api.nvim_create_autocmd({ "FileType" }, {
+--   pattern = { "*" },
+--   callback = function()
+--     vim.b.autoformat = false
+--   end,
+-- })
+--
