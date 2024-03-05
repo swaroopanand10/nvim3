@@ -499,6 +499,27 @@ local plugins = {
     --     cmd = 'Octo',
     --     opts = true,
     -- },
+    -- { -- not needed that much
+    --     'kdheepak/lazygit.nvim',
+    --     keys = {
+    --         {
+    --             '<leader>gg',
+    --             '<cmd>LazyGit<cr>',
+    --             desc = 'Comment',
+    --         },
+    --     },
+    --     cmd = {
+    --         'LazyGit',
+    --         'LazyGitConfig',
+    --         'LazyGitCurrentFile',
+    --         'LazyGitFilter',
+    --         'LazyGitFilterCurrentFile',
+    --     },
+    --     -- optional for floating window border decoration
+    --     dependencies = {
+    --         'nvim-lua/plenary.nvim',
+    --     },
+    -- },
 }
 
 local ts_parsers = {
