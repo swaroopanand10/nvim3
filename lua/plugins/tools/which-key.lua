@@ -6,17 +6,14 @@ end
 local icons = require('lib.icons')
 local Util = require('util')
 
-local function is_git_repo()
-    vim.fn.system('git rev-parse --is-inside-work-tree')
+local Terminal = require('toggleterm.terminal').Terminal
+local lazygit = Terminal:new({ cmd = 'lazygit', hidden = true, dir = 'git_dir', direction = 'float' })
 
-    return vim.v.shell_error == 0
+function _lazygit_toggle()
+    lazygit:toggle()
 end
 
-local function get_git_root()
-    local dot_git_path = vim.fn.finddir('.git', '.;')
-    return vim.fn.fnamemodify(dot_git_path, ':h')
-end
-
+-- vim.api.nvim_set_keymap("n", "<leader>g", "<cmd>lua _lazygit_toggle()<CR>", {noremap = true, silent = true})
 local setup = {
     plugins = {
         marks = true,
@@ -215,7 +212,7 @@ local mappings = {
         -- C = { '<cmd>CoAuthor<cr>', 'Add Co Author' },
         d = { '<cmd>Gitsigns preview_hunk<cr>', 'Preview Hunk' },
         D = { '<cmd>Gitsigns diffthis HEAD<cr>', 'Diff' },
-        g = { '<cmd>ToggleTerm lazygit<cr>', 'Lazygit' },
+        g = { '<cmd>lua _lazygit_toggle()<cr>', 'Lazygit' },
         -- h = { '<cmd>Octo<cr>', 'Octo' },
         j = { '<cmd>Gitsigns next_hunk<cr>', 'Next Hunk' },
         k = { '<cmd>Gitsigns prev_hunk<cr>', 'Prev Hunk' },

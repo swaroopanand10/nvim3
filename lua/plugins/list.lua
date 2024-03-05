@@ -376,7 +376,20 @@ local plugins = {
         opts = load_configs('tools.neorg').opts,
         keys = load_configs('tools.neorg').keys,
     },
-
+    {
+        'xeluxee/competitest.nvim',
+        dependencies = 'MunifTanjim/nui.nvim',
+        config = load_configs('tools.competitest').config,
+        keys = load_configs('tools.competitest').keys,
+    },
+    {
+        'Apeiros-46B/qalc.nvim',
+        cmd = 'Qalc',
+        opts = {
+            -- extra command arguments for Qalculate
+            cmd_args = { '--set', 'fr 5', '--set', 'appr 3' }, -- this is working
+        },
+    },
     {
         'echasnovski/mini.surround',
         opts = {
