@@ -9,7 +9,7 @@ lsp_zero.on_attach(function(client, bufnr)
     lsp_zero.default_keymaps({ buffer = bufnr, exclude = { 'gl', 'K' } })
     vim.keymap.set('n', 'gK', vim.lsp.buf.signature_help, { buffer = bufnr })
     vim.keymap.set('i', '<c-K>', vim.lsp.buf.signature_help, { buffer = bufnr })
-    vim.keymap.set('n', 'K', ':Lspsaga hover_doc<cr>', { desc = 'lspsaga hover doc', silent = true })
+    -- vim.keymap.set('n', 'K', ':Lspsaga hover_doc<cr>', { desc = 'lspsaga hover doc', silent = true })
 end)
 
 local auto_install = require('lib.util').get_user_config('auto_install', true)

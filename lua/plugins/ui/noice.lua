@@ -76,8 +76,19 @@ local config = function()
                 ['cmp.entry.get_documentation'] = true,
             },
             -- when loading with persistance it is throwing errors
-            signature = { enabled = false },
-            hover = { enabled = false },
+            signature = {
+                enabled = true,
+                auto_open = {
+                    enabled = true,
+                    trigger = false, -- Automatically show signature help when typing a trigger character from the LSP
+                    luasnip = false, -- Will open signature help when jumping to Luasnip insert nodes
+                    throttle = 50, -- Debounce lsp signature help request by 50ms
+                },
+                view = nil, -- when nil, use defaults from documentation
+                ---@type NoiceViewOptions
+                opts = {}, -- merged with defaults from documentation
+            },
+            -- hover = { enabled = false },
         },
         routes = {
             {

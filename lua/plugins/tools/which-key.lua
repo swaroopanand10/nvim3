@@ -421,7 +421,7 @@ local no_leader_mappings = {
     },
 
     ['#'] = { '<cmd>edit #<cr>', 'Alternate Buffer' },
-    K = { '<cmd>silent Lspsaga hover_doc<cr>', 'LSP saga Hover', silent = true }, -- added in keymaps folder
+    -- K = { '<cmd>silent Lspsaga hover_doc<cr>', 'LSP saga Hover', silent = true }, -- added in keymaps folder
     U = { '<cmd>redo<cr>', 'Redo' },
 }
 

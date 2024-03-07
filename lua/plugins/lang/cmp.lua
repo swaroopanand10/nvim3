@@ -34,14 +34,10 @@ cmp.setup({
         ['<C-j>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
         ['<C-k>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
         ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
-        -- ['<C-k>'] = cmp.mapping.select_prev_item(),
-        -- ['<C-j>'] = cmp.mapping.select_next_item(),
-        -- ['<C-p>'] = cmp.mapping(cmp.mapping.scroll_docs(-1), { 'i', 'c' }),
-        -- ['<C-n>'] = cmp.mapping(cmp.mapping.scroll_docs(1), { 'i', 'c' }),
-        -- ['<C-b>'] = cmp.mapping.scroll_docs(-3),
-        -- ['<C-f>'] = cmp.mapping.scroll_docs(3),
-        ['<C-p>'] = cmp.mapping.scroll_docs(-4),
-        ['<C-n>'] = cmp.mapping.scroll_docs(4),
+        ['<C-p>'] = cmp.mapping(cmp.mapping.scroll_docs(-1), { 'i', 'c' }),
+        ['<C-n>'] = cmp.mapping(cmp.mapping.scroll_docs(1), { 'i', 'c' }),
+        ['<C-b>'] = cmp.mapping.scroll_docs(-2), -- don't know why but adding this makes the c-n and c-p work properly
+        ['<C-f>'] = cmp.mapping.scroll_docs(2),
         ['<C-y>'] = cmp.config.disable,
         ['<C-c>'] = cmp.mapping({
             i = cmp.mapping.abort(),

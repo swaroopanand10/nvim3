@@ -215,6 +215,9 @@ local plugins = {
             'neovim/nvim-lspconfig',
             'williamboman/mason-lspconfig.nvim',
         },
+        init = function() -- needed this to make it work with noice.nvim
+            vim.g.lsp_zero_ui_float_border = 0
+        end,
         config = load_config('lang.lsp-zero'),
         event = { 'BufReadPre', 'BufNewFile' },
         -- event = { 'BufReadPost', 'BufWritePost', 'BufNewFile' },
@@ -284,13 +287,13 @@ local plugins = {
         opts = load_configs('tools.trouble').opts,
         keys = load_configs('tools.trouble').keys,
     },
-    {
-        'theprimeagen/harpoon',
-        branch = 'harpoon2',
-        dependencies = { 'nvim-lua/plenary.nvim' },
-        config = load_configs('tools.harpoon').config,
-        keys = load_configs('tools.harpoon').keys,
-    },
+    -- {
+    --     'theprimeagen/harpoon',
+    --     branch = 'harpoon2',
+    --     dependencies = { 'nvim-lua/plenary.nvim' },
+    --     config = load_configs('tools.harpoon').config,
+    --     keys = load_configs('tools.harpoon').keys,
+    -- },
     {
         'chentoast/marks.nvim',
         event = 'VeryLazy',
@@ -392,18 +395,30 @@ local plugins = {
     },
     {
         'echasnovski/mini.surround',
+        -- opts = {
+        --     mappings = {
+        --         add = ';a',
+        --         delete = ';d',
+        --         find = ';f',
+        --         find_left = ';F',
+        --         highlight = ';h',
+        --         replace = ';r',
+        --         update_n_lines = ';n',
+        --     },
+        -- },
+        -- keys = { ';a', ';r', ';d', ';h', ';n', ';f', ';F' },
         opts = {
             mappings = {
-                add = ';a',
-                delete = ';d',
-                find = ';f',
-                find_left = ';F',
-                highlight = ';h',
-                replace = ';r',
-                update_n_lines = ';n',
+                add = ',a',
+                delete = ',d',
+                find = ',f',
+                find_left = ',F',
+                highlight = ',h',
+                replace = ',r',
+                update_n_lines = ',n',
             },
         },
-        keys = { ';a', ';r', ';d', ';h', ';n', ';f', ';F' },
+        keys = { ',a', ',r', ',d', ',h', ',n', ',f', ',F' },
     },
     {
         'windwp/nvim-autopairs',
@@ -434,7 +449,7 @@ local plugins = {
     {
         'folke/which-key.nvim',
         config = load_config('tools.which-key'),
-        keys = { '<space>', 'g', ']', '[', "'", '"', 'd', 'm', ';', 'v', 'j', 'k' },
+        keys = { '<space>', 'g', ']', '[', "'", '"', 'd', 'm', 'v' },
         -- keys = { '[a-z]' },
         -- event = 'VeryLazy',
     },
@@ -461,7 +476,7 @@ local plugins = {
             'nvim-telescope/telescope-symbols.nvim',
             'molecule-man/telescope-menufacture',
             'debugloop/telescope-undo.nvim',
-            'ThePrimeagen/harpoon',
+            -- 'ThePrimeagen/harpoon',
         },
         config = load_configs('tools.telescope').config,
         keys = load_configs('tools.telescope').keys,
@@ -493,6 +508,14 @@ local plugins = {
         'tpope/vim-fugitive',
         cmd = 'Git',
     },
+    {
+        'otavioschwanck/arrow.nvim',
+        config = load_configs('tools.arrow').config,
+        keys = load_configs('tools.arrow').keys,
+        -- keys = { ';' },
+        -- event = { 'BufReadPost', 'BufWritePost', 'BufNewFile' },
+    },
+
     -- {
     --     'pwntester/octo.nvim',
     --     config = load_config('tools.octo'),

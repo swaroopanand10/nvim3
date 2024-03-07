@@ -36,7 +36,7 @@ map({ 'n', 'v', 'x' }, 'gl', '$', { desc = 'End of line' })
 map({ 'n', 'v', 'x' }, 'gh', '^', { desc = 'Beginning of line' })
 
 -- Center Cursors
-map('n', 'J', 'mzJ`z', opts)
+-- map('n', 'J', 'mzJ`z', opts) -- will not create 'z' mark automatically
 map('n', '<C-d>', '<C-d>zz', opts)
 map('n', '<C-u>', '<C-u>zz', opts)
 map('n', 'n', 'nzzzv', opts)
@@ -169,3 +169,4 @@ map('i', '<A-cr>', '<c-j>', { desc = 'abort cmp then press enter', silent = true
 -- mapping for scrolling up and down
 map('n', '<A-r>', '<C-y>', opts)
 map('n', '<A-e>', '<C-e>', opts)
+-- map('n', ',', '', opts)
