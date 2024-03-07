@@ -289,12 +289,12 @@ local keys = {
     {
         '<leader>sb',
         '<cmd>Telescope current_buffer_fuzzy_find<cr>',
-        desc = 'Checkout branch',
+        desc = 'curbuf fuzzy find',
     },
     {
         '<leader>/',
         '<cmd>Telescope current_buffer_fuzzy_find<cr>',
-        desc = 'Checkout branch',
+        desc = 'curbuf fuzzy find',
     },
     {
         '<leader>sG',
