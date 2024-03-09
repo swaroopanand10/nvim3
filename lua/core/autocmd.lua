@@ -108,19 +108,19 @@ vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
     end,
 })
 
--- -- feature to disable lualine on first buf entry(immitating vim startup) only once (working)
--- vim.api.nvim_create_autocmd({ "BufEnter" }, {
---   once = true,
---   callback = function()
---     -- if vim.o.laststatus == 3 then
---     vim.o.laststatus = 0
---     require("lualine").hide({ unhide = false })
---     vim.api.nvim_set_hl(0, "Statusline", { fg = "#1b1d2b", bg = "#000000" })
---     vim.api.nvim_set_hl(0, "StatuslineNC", { bold = true, fg = "#1b1d2b", bg = "#000000" })
---     vim.cmd([[set statusline=%{repeat('─',winwidth('.'))}]])
---     -- end
---   end,
--- })
+-- feature to disable lualine on first buf entry(immitating vim startup) only once (working)
+vim.api.nvim_create_autocmd({ 'BufEnter' }, {
+    once = true,
+    callback = function()
+        -- if vim.o.laststatus == 3 then
+        vim.o.laststatus = 0
+        -- require('lualine').hide({ unhide = false }) -- not needed since, it is not loaded until required
+        vim.api.nvim_set_hl(0, 'Statusline', { fg = '#1b1d2b', bg = '#000000' })
+        vim.api.nvim_set_hl(0, 'StatuslineNC', { bold = true, fg = '#1b1d2b', bg = '#000000' })
+        vim.cmd([[set statusline=%{repeat('─',winwidth('.'))}]])
+        -- end
+    end,
+})
 
 -- -- load session on startup
 -- vim.api.nvim_create_autocmd("VimEnter", {
@@ -203,7 +203,7 @@ vim.api.nvim_create_autocmd({ 'FileType' }, {
 vim.api.nvim_create_autocmd({ 'FileType' }, {
     pattern = { 'norg' },
     callback = function()
-      require('treesitter-context').setup({enable=false})
+        require('treesitter-context').setup({ enable = false })
     end,
 })
 

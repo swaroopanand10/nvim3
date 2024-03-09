@@ -31,7 +31,7 @@ local plugins = {
     {
         'nvim-lualine/lualine.nvim',
         config = load_config('ui.lualine'),
-        event = { 'BufReadPre', 'BufNewFile' },
+        -- event = { 'BufReadPre', 'BufNewFile' }, -- no need to load it
         -- event = { 'VeryLazy' },
     },
     {
