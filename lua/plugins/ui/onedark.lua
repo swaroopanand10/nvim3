@@ -73,6 +73,30 @@ onedark.setup({
             fg = '#e0def4',
             bg = '#393552',
         },
+        -- Comment = {
+        --     fg = '#908CAA',
+        --     bg = '#000000',
+        -- },
+        -- TSComment = {
+        --     fg = '#908CAA',
+        --     bg = '#000000',
+        -- },
+        ['@comment'] = {
+            fg = '#908CAA',
+            bg = '#000000',
+        },
+        ['@lsp.type.comment'] = {
+            fg = '#908CAA',
+            bg = '#000000',
+        },
+        ['@variable'] = {
+            fg = '#E0DEF4',
+            -- fg = '#ffffff',
+        },
+        ['@lsp.type.variable'] = {
+            fg = '#E0DEF4',
+            -- fg = '#ffffff',
+        },
         -- looked fine before it
         -- DiagnosticVirtualTextError = {
         --     fg = '#ff0000',
@@ -87,3 +111,5 @@ vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'none' })
 vim.api.nvim_set_hl(0, 'FloatBorder', { bg = 'none' })
 vim.api.nvim_set_hl(0, 'Pmenu', { bg = 'none' })
 vim.api.nvim_set_hl(0, 'Cursor', { bg = '#F92660' })
+-- vim.api.nvim_set_hl(0, "Comment", { fg = "#c4a7e7"})
+-- vim.api.nvim_set_hl(0, "@comment", { link = "Comment"})
