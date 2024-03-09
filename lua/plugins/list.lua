@@ -448,8 +448,8 @@ local plugins = {
     -- },
     {
         'folke/which-key.nvim',
-        config = load_config('tools.which-key'),
-        keys = { '<space>', 'g', ']', '[', "'", '"', 'd', 'm', 'v' },
+        config = load_configs('tools.which-key').config,
+        keys = load_configs('tools.which-key').keys,
         -- keys = { '[a-z]' },
         -- event = 'VeryLazy',
     },
