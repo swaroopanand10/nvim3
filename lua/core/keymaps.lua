@@ -98,7 +98,7 @@ map('n', '<S-h>', '<cmd>bprevious<cr>', { desc = 'Previous Buffer', silent = tru
 map('n', '<S-l>', '<cmd>bnext<cr>', { desc = 'Previous Buffer', silent = true })
 
 -- Saving buffer using <ctrl-s>
-map('n', '<C-s>', ':w<cr>', opts)
+map('n', '<C-s>', '<cmd>w<cr>', opts)
 
 -- Paste only last yanked text keybinds
 map('n', 'yp', '"0p', opts)
