@@ -30,26 +30,69 @@ cmp.setup({
             luasnip.lsp_expand(args.body)
         end,
     },
-    mapping = {
+    -- mapping = {
+    --     ['<C-j>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
+    --     ['<C-k>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
+    --     ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
+    --     ['<C-p>'] = cmp.mapping(cmp.mapping.scroll_docs(-1), { 'i', 'c' }),
+    --     ['<C-n>'] = cmp.mapping(cmp.mapping.scroll_docs(1), { 'i', 'c' }),
+    --     ['<C-b>'] = cmp.mapping.scroll_docs(-2), -- don't know why but adding this makes the c-n and c-p work properly
+    --     ['<C-f>'] = cmp.mapping.scroll_docs(2),
+    --     ['<C-y>'] = cmp.config.disable,
+    --     ['<C-c>'] = cmp.mapping({
+    --         i = cmp.mapping.abort(),
+    --         c = cmp.mapping.close(),
+    --     }),
+    --     ['<CR>'] = cmp.mapping.confirm({
+    --         select = true,
+    --     }),
+    --     ['<S-CR>'] = cmp.mapping.confirm({
+    --         behavior = cmp.ConfirmBehavior.Replace,
+    --         select = true,
+    --     }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+    --     ['<Tab>'] = cmp.mapping(function(fallback)
+    --         if luasnip.expandable() then
+    --             luasnip.expand()
+    --         elseif luasnip.expand_or_jumpable() then
+    --             luasnip.expand_or_jump()
+    --         else
+    --             fallback()
+    --         end
+    --     end, {
+    --         'i',
+    --         's',
+    --     }),
+    --     ['<S-Tab>'] = cmp.mapping(function(fallback)
+    --         if luasnip.jumpable(-1) then
+    --             luasnip.jump(-1)
+    --         else
+    --             fallback()
+    --         end
+    --     end, {
+    --         'i',
+    --         's',
+    --     }),
+    -- },
+    mapping = cmp.mapping.preset.insert({ -- this is working correctly in all cases
         ['<C-j>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
         ['<C-k>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
-        ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
-        ['<C-p>'] = cmp.mapping(cmp.mapping.scroll_docs(-1), { 'i', 'c' }),
-        ['<C-n>'] = cmp.mapping(cmp.mapping.scroll_docs(1), { 'i', 'c' }),
-        ['<C-b>'] = cmp.mapping.scroll_docs(-2), -- don't know why but adding this makes the c-n and c-p work properly
-        ['<C-f>'] = cmp.mapping.scroll_docs(2),
-        ['<C-y>'] = cmp.config.disable,
-        ['<C-c>'] = cmp.mapping({
-            i = cmp.mapping.abort(),
-            c = cmp.mapping.close(),
-        }),
-        ['<CR>'] = cmp.mapping.confirm({
-            select = true,
-        }),
+        ['<C-p>'] = cmp.mapping(cmp.mapping.scroll_docs(-3), { 'i', 'c' }),
+        ['<C-n>'] = cmp.mapping(cmp.mapping.scroll_docs(3), { 'i', 'c' }),
+        ['<C-b>'] = cmp.mapping(cmp.mapping.scroll_docs(-1), { 'i', 'c' }),
+        ['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(1), { 'i', 'c' }),
+        ['<C-Space>'] = cmp.mapping.complete(),
+        ['<C-e>'] = cmp.mapping.abort(),
+        ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item in this case.
         ['<S-CR>'] = cmp.mapping.confirm({
             behavior = cmp.ConfirmBehavior.Replace,
             select = true,
         }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+        ['<C-CR>'] = function(fallback)
+            cmp.abort()
+            fallback()
+        end,
+
+        -- tab support only for snippets,
         ['<Tab>'] = cmp.mapping(function(fallback)
             if luasnip.expandable() then
                 luasnip.expand()
@@ -72,7 +115,8 @@ cmp.setup({
             'i',
             's',
         }),
-    },
+    }),
+
     formatting = {
         fields = { 'kind', 'abbr', 'menu' },
         expandable_indicator = true,

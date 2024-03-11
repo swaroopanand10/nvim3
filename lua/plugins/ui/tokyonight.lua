@@ -4,7 +4,7 @@ if not status_ok then
 end
 
 tokyonight.setup({
-      -- style = "night",
+      style = "night",
       transparent = true, -- Enable this to disable setting the background color
       styles = {
         -- Normal = { guibg = "#ffffff" }, -- not working

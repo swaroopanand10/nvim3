@@ -584,6 +584,10 @@ local lsp_servers = {
     -- 'typos_lsp',
     'vimls',
     'clangd',
+    'html',
+    -- 'emmet_ls',
+    'emmet_language_server', -- modified verson of emmet_ls
+    'cssls',
 }
 
 local null_ls_sources = {
