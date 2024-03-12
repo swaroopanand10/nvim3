@@ -277,16 +277,6 @@ local keys = {
         desc = 'Registers',
     },
     {
-        '<leader>f.',
-        '<cmd>Telescope symbols<cr>',
-        desc = 'Emojis',
-    },
-    {
-        '<leader>f,',
-        '<cmd>Nerdy<cr>',
-        desc = 'Nerd Glyphs',
-    },
-    {
         '<leader>sb',
         '<cmd>Telescope current_buffer_fuzzy_find<cr>',
         desc = 'curbuf fuzzy find',
@@ -426,6 +416,11 @@ local keys = {
         '<leader>sm',
         '<cmd>Telescope marks<cr>',
         desc = 'marks',
+    },
+    {
+        '<leader>s.',
+        '<cmd>Telescope symbols<cr>',
+        desc = 'Emojis',
     },
     {
         '<leader>s,',
