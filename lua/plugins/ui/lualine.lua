@@ -141,6 +141,16 @@ local lsp = {
     color = { fg = colors.fg, gui = 'bold' },
 }
 
+local macro_recorder = {
+    function()
+        local reg = vim.fn.reg_recording()
+        if reg == '' then
+            return ''
+        end -- not recording
+        return 'recording to ' .. reg
+    end,
+    color = { fg = colors.fg, gui = 'bold' },
+}
 -- local encoding = {
 --     'o:encoding',
 --     fmt = string.upper,
@@ -195,7 +205,7 @@ local config = {
         lualine_a = {},
         lualine_b = {},
         lualine_c = { filename, diff_icons, branch },
-        lualine_x = { diagnostics, lsp, filetype, 'location', progress, filesize},
+        lualine_x = { macro_recorder, diagnostics, lsp, filetype, 'location', progress, filesize },
         lualine_y = {},
         lualine_z = {},
     },

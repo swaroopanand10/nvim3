@@ -29,7 +29,7 @@ end
 local keys = {
     {
         'kl',
-        mode = { 'n', 'x', 'o' },
+        mode = { 'n', 'x' }, -- adding 'o' mode here also triggers it in 'operator pending mode' means in c,d,y modes
         function()
             require('flash').jump({
                 search = { mode = 'search', max_length = 0 },
@@ -41,7 +41,7 @@ local keys = {
     },
     {
         'lk',
-        mode = { 'n', 'x', 'o' },
+        mode = { 'n', 'x' },
         function()
             require('flash').jump({
                 search = { mode = 'search', max_length = 0 },
@@ -83,14 +83,14 @@ local keys = {
         end,
         desc = 'Treesitter Search',
     },
-    {
-        '<c-s>',
-        mode = { 'c' },
-        function()
-            require('flash').toggle()
-        end,
-        desc = 'Toggle Flash Search',
-    },
+    -- {
+    --     '<c-s>',
+    --     mode = { 'c' },
+    --     function()
+    --         require('flash').toggle()
+    --     end,
+    --     desc = 'Toggle Flash Search',
+    -- },
 }
 M.config = config
 M.keys = keys

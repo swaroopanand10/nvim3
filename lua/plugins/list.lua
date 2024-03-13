@@ -34,6 +34,12 @@ local plugins = {
         -- event = { 'BufReadPre', 'BufNewFile' }, -- no need to load it
         -- event = { 'VeryLazy' },
     },
+    -- {
+    --     'chrisgrieser/nvim-recorder',
+    --     dependencies = 'rcarriga/nvim-notify', -- optional
+    --     opts = {}, -- required even with default settings, since it calls `setup()`
+    -- },
+
     {
         'folke/todo-comments.nvim',
         cmd = { 'TodoTrouble', 'TodoTelescope' },

@@ -100,6 +100,8 @@ local config = function()
             i = { 'j', 'j' },
             v = { 'j', 'j', 'k', 'l' },
             n = { 'k', 'l', 'j' },
+            x = { 'k', 'l', 'j' },
+            o = { 'k', 'l', 'j' }, -- not working for some reason
         },
     }
 
