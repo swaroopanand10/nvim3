@@ -23,6 +23,7 @@ local config = function()
             cpp = { 'clang_format' },
             -- rust = { 'rust-analyzer' },
             sh = { 'shfmt' },
+            -- html = { 'html' },
         },
         format_on_save = function(bufnr)
             -- Disable with a global or buffer-local variable

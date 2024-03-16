@@ -254,6 +254,24 @@ local plugins = {
         config = load_config('lang.mason'),
         cmd = 'Mason',
     },
+    -- {
+    --     'WhoIsSethDaniel/mason-tool-installer.nvim',
+    --     config = load_configs('lang.mason_tool_installer').config,
+    --     event = 'VeryLazy',
+    -- },
+    -- {
+    --     'nvimtools/none-ls.nvim',
+    --     dependencies = { 'neovim/nvim-lspconfig', 'jay-babu/mason-null-ls.nvim' },
+    --     config = load_config('lang.null-ls'),
+    --     -- event = { 'BufReadPre', 'BufNewFile' },
+    --     -- event = { 'BufReadPost', 'BufWritePost', 'BufNewFile' },
+    --     event = { 'VeryLazy' },
+    -- },
+    -- {
+    --     'mfussenegger/nvim-lint',
+    --     event = { 'BufReadPre', 'BufNewFile' },
+    --     config = load_configs('lang.nvim_lint').config,
+    -- },
     {
         'kawre/leetcode.nvim',
         build = ':TSUpdate html',
@@ -585,14 +603,10 @@ local ts_parsers = {
 
 local lsp_servers = {
     'bashls',
-    'eslint',
     'pyright',
-    -- 'elixirls',
     'jsonls',
     'lua_ls',
-    -- 'ruby_ls',
     'ruff_lsp',
-    -- 'rubocop',
     'rust_analyzer',
     'tsserver',
     -- 'typos_lsp',

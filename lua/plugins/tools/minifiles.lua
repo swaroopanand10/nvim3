@@ -44,12 +44,12 @@ local config = function()
         end,
     })
 
-    vim.api.nvim_create_autocmd('User', {
-        pattern = 'MiniFilesActionRename',
-        callback = function(event)
-            require('lazyvim.util').lsp.on_rename(event.data.from, event.data.to)
-        end,
-    })
+    -- vim.api.nvim_create_autocmd('User', {
+    --     pattern = 'MiniFilesActionRename',
+    --     callback = function(event)
+    --         require('lazyvim.util').lsp.on_rename(event.data.from, event.data.to)
+    --     end,
+    -- })
 
     -- adding features in mini.files to open files in desirabe splits and selected window
     local map_split = function(buf_id, lhs, direction)

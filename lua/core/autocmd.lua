@@ -32,11 +32,12 @@ vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
     end,
 })
 
--- Check if we need to reload the file when it changed
-vim.api.nvim_create_autocmd({ 'FocusGained', 'TermClose', 'TermLeave' }, {
-    group = augroup('checktime'),
-    command = 'checktime',
-})
+-- Didn't know what it does so disabling it
+-- -- Check if we need to reload the file when it changed
+-- vim.api.nvim_create_autocmd({ 'FocusGained', 'TermClose', 'TermLeave' }, {
+--     group = augroup('checktime'),
+--     command = 'checktime',
+-- })
 
 -- Highlight on yank
 vim.api.nvim_create_autocmd('TextYankPost', {
