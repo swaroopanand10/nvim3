@@ -254,11 +254,12 @@ local plugins = {
         config = load_config('lang.mason'),
         cmd = 'Mason',
     },
-    -- {
-    --     'WhoIsSethDaniel/mason-tool-installer.nvim',
-    --     config = load_configs('lang.mason_tool_installer').config,
-    --     event = 'VeryLazy',
-    -- },
+    {
+        'WhoIsSethDaniel/mason-tool-installer.nvim',
+        config = load_configs('lang.mason_tool_installer').config,
+        -- event = 'VeryLazy',
+        event = { 'BufReadPre', 'BufNewFile' },
+    },
     -- {
     --     'nvimtools/none-ls.nvim',
     --     dependencies = { 'neovim/nvim-lspconfig', 'jay-babu/mason-null-ls.nvim' },

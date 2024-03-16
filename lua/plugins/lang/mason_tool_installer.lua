@@ -33,8 +33,9 @@ local config = function()
         -- This is only relevant when you are using 'run_on_start'. It has no
         -- effect when running manually via ':MasonToolsInstall' etc....
         -- Default: nil
-        debounce_hours = 0.01, -- a
+        -- debounce_hours = 5, -- a
     })
+    vim.api.nvim_command('MasonToolsInstall')
 end
 M.config = config
 return M
