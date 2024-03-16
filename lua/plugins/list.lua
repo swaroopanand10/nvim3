@@ -255,12 +255,20 @@ local plugins = {
         cmd = 'Mason',
     },
     {
-        'nvimtools/none-ls.nvim',
-        dependencies = { 'neovim/nvim-lspconfig', 'jay-babu/mason-null-ls.nvim' },
-        config = load_config('lang.null-ls'),
-        -- event = { 'BufReadPre', 'BufNewFile' },
-        -- event = { 'BufReadPost', 'BufWritePost', 'BufNewFile' },
-        event = { 'VeryLazy' },
+        'kawre/leetcode.nvim',
+        build = ':TSUpdate html',
+        cmd = 'Leet',
+        dependencies = {
+            'nvim-telescope/telescope.nvim',
+            'nvim-lua/plenary.nvim', -- required by telescope
+            'MunifTanjim/nui.nvim',
+
+            -- optional
+            'nvim-treesitter/nvim-treesitter',
+            'rcarriga/nvim-notify',
+            'nvim-tree/nvim-web-devicons',
+        },
+        config = load_configs('lang.leetcode').config,
     },
 
     -- Completion
