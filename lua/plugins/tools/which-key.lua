@@ -229,7 +229,7 @@ local config = function()
             a = { '<cmd>Gitsigns stage_hunk<cr>', 'Stage Hunk' },
             A = { '<cmd>Gitsigns stage_buffer<cr>', 'Stage Buffer' },
             b = { '<cmd>Gitsigns blame_line<cr>', 'Blame' },
-            c = { '<cmd>Git<cr>', 'Commit' },
+            -- c = { '<cmd>Git<cr>', 'Commit' },
             -- C = { '<cmd>CoAuthor<cr>', 'Add Co Author' },
             d = { '<cmd>Gitsigns preview_hunk<cr>', 'Preview Hunk' },
             D = { '<cmd>Gitsigns diffthis HEAD<cr>', 'Diff' },
@@ -252,6 +252,7 @@ local config = function()
             },
             u = { '<cmd>Gitsigns undo_stage_hunk<cr>', 'Undo Stage Hunk' },
             v = { '<cmd>Gitsigns select_hunk<cr>', 'Select Hunk' },
+            -- n = { '<cmd>Neogit kind=auto<cr>', 'Select Hunk' },
         },
         h = {
             name = icons.ui.Bookmark .. 'Harpoon',
