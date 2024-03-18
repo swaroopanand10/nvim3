@@ -537,9 +537,24 @@ local plugins = {
         -- event = { 'BufReadPre', 'BufNewFile' },
         event = { 'BufReadPost', 'BufWritePost', 'BufNewFile' },
     },
+    -- {
+    --     'tpope/vim-fugitive',
+    --     cmd = 'Git',
+    -- },
+    -- {
+    --     'NeogitOrg/neogit',
+    --     dependencies = {
+    --         'nvim-lua/plenary.nvim', -- required
+    --         'sindrets/diffview.nvim', -- optional - Diff integration
+    --         'nvim-telescope/telescope.nvim', -- optional
+    --     },
+    --     keys = load_configs('tools.neogit').keys,
+    --     config = true,
+    -- },
     {
-        'tpope/vim-fugitive',
-        cmd = 'Git',
+        'sindrets/diffview.nvim',
+        cmd = 'DiffviewOpen',
+        keys = load_configs('tools.diffview').keys,
     },
     {
         'otavioschwanck/arrow.nvim',
