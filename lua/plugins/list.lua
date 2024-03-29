@@ -273,22 +273,22 @@ local plugins = {
     --     event = { 'BufReadPre', 'BufNewFile' },
     --     config = load_configs('lang.nvim_lint').config,
     -- },
-    {
-        'kawre/leetcode.nvim',
-        build = ':TSUpdate html',
-        cmd = 'Leet',
-        dependencies = {
-            'nvim-telescope/telescope.nvim',
-            'nvim-lua/plenary.nvim', -- required by telescope
-            'MunifTanjim/nui.nvim',
-
-            -- optional
-            'nvim-treesitter/nvim-treesitter',
-            'rcarriga/nvim-notify',
-            'nvim-tree/nvim-web-devicons',
-        },
-        config = load_configs('lang.leetcode').config,
-    },
+    -- {
+    --     'kawre/leetcode.nvim',
+    --     build = ':TSUpdate html',
+    --     cmd = 'Leet',
+    --     dependencies = {
+    --         'nvim-telescope/telescope.nvim',
+    --         'nvim-lua/plenary.nvim', -- required by telescope
+    --         'MunifTanjim/nui.nvim',
+    --
+    --         -- optional
+    --         'nvim-treesitter/nvim-treesitter',
+    --         'rcarriga/nvim-notify',
+    --         'nvim-tree/nvim-web-devicons',
+    --     },
+    --     config = load_configs('lang.leetcode').config,
+    -- },
 
     -- Completion
     {

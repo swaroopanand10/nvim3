@@ -257,6 +257,14 @@ local config = function()
         h = {
             name = icons.ui.Bookmark .. 'Harpoon',
         },
+        jw = {
+            name = icons.ui.Bookmark .. 'WindowPicker',
+        },
+
+        a = {
+            name = 'Competitest',
+        },
+
         c = {
             name = icons.ui.Gear .. 'LSP',
             a = { '<cmd>Lspsaga code_action<cr>', 'Code Action' },

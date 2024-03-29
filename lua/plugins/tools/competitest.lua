@@ -21,41 +21,41 @@ local config = function()
             return string.format('%s/%s/%s.%s', path, problem, problem, file_extension)
         end,
     }
-    require('Competitest').setup(opts)
+    require('competitest').setup(opts)
 end
 local keys = {
     {
-        '<leader>jnc',
+        '<leader>ac',
         '<cmd>:CompetiTest receive problem<cr>',
         silent = true,
         desc = 'CompetiTest receive problem',
     },
     {
-        '<leader>jnr',
+        '<leader>ar',
         '<cmd>:CompetiTest run<cr>',
         silent = true,
         desc = 'run testcases',
     },
     {
-        '<leader>jna',
+        '<leader>aa',
         '<cmd>:CompetiTest add_testcase<cr>',
         silent = true,
         desc = 'add testcases',
     },
     {
-        '<leader>jne',
+        '<leader>ae',
         '<cmd>:CompetiTest edit_testcase<cr>',
         silent = true,
         desc = 'edit testcases',
     },
     {
-        '<leader>jnA',
+        '<leader>aA',
         '<cmd>:CompetiTest delete_testcase<cr>',
         silent = true,
         desc = 'delete testcases',
     },
     {
-        '<leader>jnw',
+        '<leader>aw',
         '<cmd>:CompetiTest show_ui<cr>',
         silent = true,
         desc = 'open testcase ui (no-recomp)',
