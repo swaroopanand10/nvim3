@@ -5,11 +5,23 @@ end
 
 lsp_zero.extend_lspconfig()
 lsp_zero.on_attach(function(client, bufnr)
-    -- lsp_zero.default_keymaps({ buffer = bufnr })
-    lsp_zero.default_keymaps({ buffer = bufnr, exclude = { 'gl', 'K' } })
+    lsp_zero.default_keymaps({ buffer = bufnr, exclude = { 'gl', 'K', 'gr' }, preserve_mappings = false })
     vim.keymap.set('n', 'gK', vim.lsp.buf.signature_help, { buffer = bufnr })
     vim.keymap.set('i', '<c-K>', vim.lsp.buf.signature_help, { buffer = bufnr })
-    -- vim.keymap.set('n', 'K', ':Lspsaga hover_doc<cr>', { desc = 'lspsaga hover doc', silent = true })
+    vim.keymap.set('n', 'gr', '<cmd>Telescope lsp_references<cr>', { desc = 'References' })
+    vim.keymap.set('n', 'gy', function()
+        require('telescope.builtin').lsp_type_definitions({ reuse_win = true })
+    end, { buffer = bufnr, desc = 'Goto T[y]pe Definition' })
+    vim.keymap.set('n', 'gI', function()
+        require('telescope.builtin').lsp_implementations({ reuse_win = true })
+    end, { desc = 'Goto Implementation', buffer = bufnr })
+
+    -- -- vim.keymap.set('n', 'K', ':Lspsaga hover_doc<cr>', { desc = 'lspsaga hover doc', silent = true })
+
+    -- Enabled inlay hints
+    if client.server_capabilities.inlayHintProvider then
+        vim.lsp.inlay_hint.enable(bufnr, true)
+    end
 end)
 
 local auto_install = require('lib.util').get_user_config('auto_install', true)
