@@ -179,7 +179,7 @@ local plugins = {
         config = load_config('lang.refactoring'),
     },
 
-    -- Tresitter
+    -- Treesitter
     {
         'nvim-treesitter/nvim-treesitter',
         build = ':TSUpdate',
@@ -193,11 +193,13 @@ local plugins = {
         config = load_config('lang.treesitter'),
         -- event = { 'BufReadPre', 'BufNewFile' },
         -- event = { 'BufReadPost', 'BufWritePost', 'BufNewFile' },
-        event = { 'VeryLazy' },
+        -- event = { 'VeryLazy' },
+        event = { 'LazyFile' },
     },
     {
         'nvim-treesitter/nvim-treesitter-context',
-        event = 'VeryLazy',
+        -- event = 'VeryLazy',
+        event = 'LazyFile',
         enabled = true,
         opts = { mode = 'cursor', max_lines = 3 },
         keys = {
@@ -615,6 +617,7 @@ local ts_parsers = {
     'yaml',
     'c',
     'cpp',
+    'zig',
 }
 
 local lsp_servers = {
@@ -632,6 +635,7 @@ local lsp_servers = {
     -- 'emmet_ls',
     'emmet_language_server', -- modified verson of emmet_ls
     'cssls',
+    'zls',
 }
 
 local null_ls_sources = {

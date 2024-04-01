@@ -19,6 +19,7 @@ local lazy = require('lazy')
 
 -- local icons = require('lib.icons')
 local plugins = require('plugins.list').plugins
+require('lib.util').lazy_file()
 
 lazy.setup({
     root = vim.fn.stdpath('data') .. '/lazy',
