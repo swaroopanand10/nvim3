@@ -5,7 +5,7 @@ end
 
 lsp_zero.extend_lspconfig()
 lsp_zero.on_attach(function(client, bufnr)
-    lsp_zero.default_keymaps({ buffer = bufnr, exclude = { 'gl', 'K', 'gr' }, preserve_mappings = false })
+    lsp_zero.default_keymaps({ buffer = bufnr, exclude = { 'gl', 'K', 'gr', 'gi' }, preserve_mappings = false })
     vim.keymap.set('n', 'gK', vim.lsp.buf.signature_help, { buffer = bufnr })
     vim.keymap.set('i', '<c-K>', vim.lsp.buf.signature_help, { buffer = bufnr })
     vim.keymap.set('n', 'gr', '<cmd>Telescope lsp_references<cr>', { desc = 'References' })

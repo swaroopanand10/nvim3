@@ -43,7 +43,8 @@ local plugins = {
     {
         'folke/todo-comments.nvim',
         cmd = { 'TodoTrouble', 'TodoTelescope' },
-        event = 'VeryLazy',
+        -- event = 'VeryLazy',
+        event = 'LazyFile',
         config = true,
         -- stylua: ignore
         keys = {
@@ -59,16 +60,14 @@ local plugins = {
         'lukas-reineke/indent-blankline.nvim',
         config = load_config('ui.indentline'),
         main = 'ibl',
-        -- event = { 'BufReadPre', 'BufNewFile' },
-        -- event = { 'BufReadPost', 'BufWritePost', 'BufNewFile' },
-        event = { 'VeryLazy' },
+        -- event = { 'VeryLazy' },
+        event = { 'LazyFile' },
     },
     {
         'HiPhish/rainbow-delimiters.nvim',
         config = load_config('ui.rainbow'),
-        -- event = { 'BufReadPre', 'BufNewFile' },
-        -- event = { 'BufReadPost', 'BufWritePost', 'BufNewFile' },
-        event = { 'VeryLazy' },
+        -- event = { 'VeryLazy' },
+        event = { 'LazyFile' },
     },
     {
         'rcarriga/nvim-notify',
@@ -80,9 +79,8 @@ local plugins = {
     {
         'stevearc/dressing.nvim',
         config = load_config('ui.dressing'),
-        -- event = { 'BufReadPre', 'BufNewFile' },
-        -- event = { 'BufReadPost', 'BufWritePost', 'BufNewFile' },
-        event = { 'VeryLazy' },
+        -- event = { 'VeryLazy' },
+        event = { 'LazyFile' },
     },
     {
         'uga-rosa/ccc.nvim', -- currently not working for some reason in every neovim
@@ -182,19 +180,31 @@ local plugins = {
     -- Treesitter
     {
         'nvim-treesitter/nvim-treesitter',
+        version = false,
         build = ':TSUpdate',
         dependencies = {
-            'nvim-treesitter/nvim-treesitter-refactor',
+            -- 'nvim-treesitter/nvim-treesitter-refactor',
             'nvim-treesitter/nvim-treesitter-textobjects',
-            'RRethy/nvim-treesitter-endwise',
-            'RRethy/nvim-treesitter-textsubjects',
-            'windwp/nvim-ts-autotag',
+            -- 'RRethy/nvim-treesitter-endwise',
+            -- 'RRethy/nvim-treesitter-textsubjects',
         },
+        init = function(plugin)
+            -- PERF: add nvim-treesitter queries to the rtp and it's custom query predicates early
+            -- This is needed because a bunch of plugins no longer `require("nvim-treesitter")`, which
+            -- no longer trigger the **nvim-treesitter** module to be loaded in time.
+            -- Luckily, the only things that those plugins need are the custom queries, which we make available
+            -- during startup.
+            require('lazy.core.loader').add_to_rtp(plugin)
+            require('nvim-treesitter.query_predicates')
+        end,
         config = load_config('lang.treesitter'),
-        -- event = { 'BufReadPre', 'BufNewFile' },
-        -- event = { 'BufReadPost', 'BufWritePost', 'BufNewFile' },
-        -- event = { 'VeryLazy' },
+        -- event = { 'LazyFile', 'VeryLazy' },
         event = { 'LazyFile' },
+    },
+    {
+        'windwp/nvim-ts-autotag',
+        event = 'LazyFile',
+        opts = {},
     },
     {
         'nvim-treesitter/nvim-treesitter-context',
@@ -227,9 +237,8 @@ local plugins = {
             vim.g.lsp_zero_ui_float_border = 0
         end,
         config = load_config('lang.lsp-zero'),
-        event = { 'BufReadPre', 'BufNewFile' },
-        -- event = { 'BufReadPost', 'BufWritePost', 'BufNewFile' },
         -- event = { 'VeryLazy' },
+        event = { 'LazyFile' },
     },
     {
         'folke/neodev.nvim',
@@ -259,8 +268,9 @@ local plugins = {
     {
         'WhoIsSethDaniel/mason-tool-installer.nvim',
         config = load_configs('lang.mason_tool_installer').config,
-        -- event = 'VeryLazy',
-        event = { 'BufReadPre', 'BufNewFile' },
+        event = 'VeryLazy',
+        -- event = { 'BufReadPre', 'BufNewFile' },
+
     },
     -- {
     --     'nvimtools/none-ls.nvim',
@@ -331,7 +341,8 @@ local plugins = {
     -- },
     {
         'chentoast/marks.nvim',
-        event = 'VeryLazy',
+        -- event = 'VeryLazy',
+        event = 'LazyFile',
         config = load_configs('tools.marks').config,
         -- keys = load_configs('tools.marks').keys,
         -- keys = { 'm' },
@@ -430,18 +441,6 @@ local plugins = {
     },
     {
         'echasnovski/mini.surround',
-        -- opts = {
-        --     mappings = {
-        --         add = ';a',
-        --         delete = ';d',
-        --         find = ';f',
-        --         find_left = ';F',
-        --         highlight = ';h',
-        --         replace = ';r',
-        --         update_n_lines = ';n',
-        --     },
-        -- },
-        -- keys = { ';a', ';r', ';d', ';h', ';n', ';f', ';F' },
         opts = {
             mappings = {
                 add = ',a',
@@ -485,7 +484,6 @@ local plugins = {
         'folke/which-key.nvim',
         config = load_configs('tools.which-key').config,
         keys = load_configs('tools.which-key').keys,
-        -- keys = { '[a-z]' },
         -- event = 'VeryLazy',
     },
     -- {
@@ -537,7 +535,8 @@ local plugins = {
         config = load_config('tools.gitsigns'),
         cmd = 'Gitsigns',
         -- event = { 'BufReadPre', 'BufNewFile' },
-        event = { 'BufReadPost', 'BufWritePost', 'BufNewFile' },
+        -- event = { 'BufReadPost', 'BufWritePost', 'BufNewFile' },
+        event = 'LazyFile',
     },
     -- {
     --     'tpope/vim-fugitive',
