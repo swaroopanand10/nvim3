@@ -320,10 +320,10 @@ local config = function()
             j = { '', 'Next Usage' },
             k = { '', 'Previous Usage' },
             R = { "<Esc><cmd>lua require('telescope').extensions.refactoring.refactors()<CR>", 'Refactor Commands' },
-            S = { "<cmd>lua require('spectre').open()<cr>", 'Replace' },
+            S = { "<cmd>lua require('spectre').open()<cr>", 'Spectre Replace' },
             s = { [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], 'Replace Word' },
             v = { "<cmd>lua require('refactoring').refactor('Extract Variable')<CR>", 'Extract Variable' },
-            w = { "<cmd>lua require('spectre').open_visual({select_word=true})<cr>", 'Replace Word' },
+            w = { "<cmd>lua require('spectre').open_visual({select_word=true})<cr>", 'Replace Word spectre' },
         },
         t = {
             name = icons.ui.Terminal .. 'Terminal',
