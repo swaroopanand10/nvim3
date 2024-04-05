@@ -270,7 +270,6 @@ local plugins = {
         config = load_configs('lang.mason_tool_installer').config,
         event = 'VeryLazy',
         -- event = { 'BufReadPre', 'BufNewFile' },
-
     },
     -- {
     --     'nvimtools/none-ls.nvim',
@@ -415,16 +414,20 @@ local plugins = {
     },
     {
         'nvim-neorg/neorg',
-        build = ':Neorg sync-parsers',
+        -- build = ':Neorg sync-parsers',
+        -- version = 'v7.0.0',
+        version = '*',
         dependencies = {
             { 'nvim-lua/plenary.nvim' },
             { 'nvim-neorg/neorg-telescope' },
             { 'nvim-telescope/telescope.nvim' },
+            { 'vhyrro/luarocks.nvim' },
         },
         ft = 'norg', -- lazy load on filetype
         opts = load_configs('tools.neorg').opts,
         keys = load_configs('tools.neorg').keys,
     },
+    { 'vhyrro/luarocks.nvim', config = true },
     {
         'xeluxee/competitest.nvim',
         dependencies = 'MunifTanjim/nui.nvim',
