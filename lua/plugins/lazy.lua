@@ -83,7 +83,7 @@ lazy.setup({
 
     -- diff = { cmd = 'git' },
     checker = { enabled = false },
-    -- change_detection = { enabled = true, notify = true },
+    change_detection = { enabled = false, notify = false }, -- did this to save memory consumption
     performance = {
         cache = { enabled = true },
         reset_packpath = true,
