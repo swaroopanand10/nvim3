@@ -22,8 +22,9 @@ local options = {
     ignorecase = true, -- ignore case in search patterns
     inccommand = 'split', -- preview incremental substitute
     laststatus = 3,
-    list = true,
-    listchars = { trail = '', tab = '', nbsp = '_', extends = '>', precedes = '<' }, -- highlight
+    list = false, -- disabling this removes arrows in place tab
+    -- listchars = { trail = '', tab = '', nbsp = '_', extends = '>', precedes = '<' }, -- highlight
+    -- listchars = { trail = '', nbsp = '_', tab= '  ' }, -- highlight
     mouse = 'a', -- allow the mouse to be used in neovim
     number = false, -- set numbered lines
     numberwidth = 4, -- set number column width to 2 {default 4}
@@ -33,10 +34,10 @@ local options = {
     scrolloff = 4, -- will keep atleast 4 line above and below the cursorline
     sessionoptions = 'blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal',
     shiftround = true, -- Round indent
-    shiftwidth = 4, -- the number of spaces inserted for each indentation
+    shiftwidth = 2, -- the number of spaces inserted for each indentation
     showcmd = false,
     showmode = false, -- we don't need to see things like -- INSERT -- anymore
-    showtabline = 0, -- always show tabs
+    showtabline = 1, -- always show tabs
     si = true,
     sidescrolloff = 8,
     smartcase = true, -- smart case
@@ -45,7 +46,7 @@ local options = {
     splitbelow = true, -- force all horizontal splits to go below current window
     splitright = true, -- force all vertical splits to go to the right of current window
     swapfile = false, -- creates a swapfile
-    tabstop = 4, -- insert 2 spaces for a tab
+    tabstop = 2, -- insert 2 spaces for a tab
     termguicolors = true, -- set term gui colors (most terminals support this)
     timeoutlen = 70, -- time to wait for a mapped sequence to complete (in milliseconds)
     ttimeoutlen = 10,
