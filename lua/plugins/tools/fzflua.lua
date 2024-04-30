@@ -2,6 +2,7 @@ local M = {}
 
 local config = function()
     local status_ok, fzflua = pcall(require, 'fzf-lua')
+    local actions = require('fzf-lua.actions')
     if not status_ok then
         return
     end
@@ -45,10 +46,29 @@ local config = function()
             fzf_opts = {
                 ['--history'] = vim.fn.stdpath('data') .. '/fzf-lua-files-history',
             },
+            actions = {
+                -- inherits from 'actions.files', here we can override
+                -- or set bind to 'false' to disable a default action
+                -- action to toggle `--no-ignore`, requires fd or rg installed
+                ['ctrl-r'] = { actions.toggle_ignore },
+                ['ctrl-g'] = false,
+                -- uncomment to override `actions.file_edit_or_qf`
+                --   ["default"]   = actions.file_edit,
+                -- custom actions are available too
+                --   ["ctrl-y"]    = function(selected) print(selected[1]) end,
+            },
         },
         grep = {
             fzf_opts = {
                 ['--history'] = vim.fn.stdpath('data') .. '/fzf-lua-grep-history',
+            },
+            actions = {
+                -- actions inherit from 'actions.files' and merge
+                -- this action toggles between 'grep' and 'live_grep'
+                ['ctrl-g'] = false,
+                ['ctrl-r'] = { actions.grep_lgrep },
+                -- uncomment to enable '.gitignore' toggle for grep
+                ['ctrl-e'] = { actions.toggle_ignore },
             },
         },
     }
