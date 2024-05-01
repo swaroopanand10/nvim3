@@ -1,8 +1,3 @@
--- local status_ok, neorg = pcall(require, 'neorg')
--- if not status_ok then
---     return
--- end
-
 local M = {}
 local keys = {
     {
@@ -112,6 +107,8 @@ local opts = {
                     unix = '~/notes/unix',
                     js = '~/notes/js',
                     css = '~/notes/css',
+                    cf = '~/notes/cf',
+                    linux = '~/notes/linux',
                 },
                 default_workspace = nil, -- doing this is best as it puts us in workspace of current dir
                 index = 'index.norg',
