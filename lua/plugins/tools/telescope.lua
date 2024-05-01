@@ -38,12 +38,16 @@ local config = function()
             end,
         })
     end
-    local open_with_trouble = function(...)
-        return require('trouble.providers.telescope').open_with_trouble(...)
-    end
-    local open_selected_with_trouble = function(...)
-        return require('trouble.providers.telescope').open_selected_with_trouble(...)
-    end
+
+    local open_with_trouble = require('trouble.sources.telescope').open
+
+    -- local open_selected_with_trouble = function(...)
+    --     return require('trouble.providers.telescope').open_selected_with_trouble(...)
+    -- end
+
+    -- Use this to add more results without clearing the trouble list
+    local add_to_trouble = require('trouble.sources.telescope').add
+
     telescope.setup({
         defaults = {
             layout_config = {
@@ -91,8 +95,8 @@ local config = function()
                     ['<M-k>'] = actions.results_scrolling_right,
                     ['<C-a>'] = actions.send_to_qflist + actions.open_qflist,
                     ['<C-g>'] = actions.send_selected_to_qflist + actions.open_qflist,
-                    ['<C-t>'] = open_with_trouble,
-                    ['<A-t>'] = open_selected_with_trouble,
+                    ['<C-r>'] = open_with_trouble,
+                    ['<C-S-r>'] = add_to_trouble,
                     ['<C-q>'] = false,
                     ['<M-q>'] = false,
                     ['<A-d>'] = actions.delete_buffer,
@@ -119,8 +123,8 @@ local config = function()
                     ['<M-k>'] = actions.results_scrolling_right,
                     ['<C-a>'] = actions.send_to_qflist + actions.open_qflist,
                     ['<C-g>'] = actions.send_selected_to_qflist + actions.open_qflist,
-                    ['<C-t>'] = open_with_trouble,
-                    ['<A-t>'] = open_selected_with_trouble,
+                    ['<C-r>'] = open_with_trouble,
+                    ['<C-S-r>'] = add_to_trouble,
                     ['<C-q>'] = false,
                     ['<M-q>'] = false,
                     ['<A-d>'] = actions.delete_buffer,

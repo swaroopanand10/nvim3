@@ -327,7 +327,8 @@ local plugins = {
     -- Tools
     {
         'folke/trouble.nvim',
-        cmd = { 'TroubleToggle', 'Trouble' },
+        branch = 'dev',
+        cmd = { 'Trouble' },
         opts = load_configs('tools.trouble').opts,
         keys = load_configs('tools.trouble').keys,
     },

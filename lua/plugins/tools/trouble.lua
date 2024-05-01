@@ -1,10 +1,41 @@
 local M = {}
 local opts = { use_diagnostic_signs = true }
 local keys = {
-    { '<leader>xx', '<cmd>TroubleToggle document_diagnostics<cr>', desc = 'Document Diagnostics (Trouble)' },
-    { '<leader>xX', '<cmd>TroubleToggle workspace_diagnostics<cr>', desc = 'Workspace Diagnostics (Trouble)' },
-    { '<leader>xL', '<cmd>TroubleToggle loclist<cr>', desc = 'Location List (Trouble)' },
-    { '<leader>xQ', '<cmd>TroubleToggle quickfix<cr>', desc = 'Quickfix List (Trouble)' },
+    { '<leader>xx', '<cmd>Trouble diagnostics toggle<cr>', desc = 'Workspace Diagnostics (Trouble)' },
+    { '<leader>xX', '<cmd>Trouble diagnostics toggle filter.buf=0<cr>', desc = 'Buffer Diagnostics (Trouble)' },
+    { '<leader>xL', '<cmd>Trouble loclist<cr>', desc = 'Location List (Trouble)' },
+    { '<leader>xQ', '<cmd>Trouble quickfix<cr>', desc = 'Quickfix List (Trouble)' },
+    {
+        '<leader>xd',
+        '<cmd>Trouble lsp toggle focus=false win.position=right<cr>',
+        desc = 'LSP Definitions / references / ... (Trouble)',
+    },
+    {
+        '<leader>xs',
+        '<cmd>Trouble symbols toggle focus=false<cr>',
+        desc = 'Symbols (Trouble)',
+    },
+    {
+        '<leader>xp',
+        function()
+            require('trouble').toggle_preview(opts)
+        end,
+        desc = 'preview toggle',
+    },
+    {
+        '<leader>xV',
+        function()
+            require('trouble').jump_split(opts)
+        end,
+        desc = 'horizonal split',
+    },
+    {
+        '<leader>xv',
+        function()
+            require('trouble').jump_vsplit(opts)
+        end,
+        desc = 'vertical split',
+    },
     {
         '[q',
         function()
