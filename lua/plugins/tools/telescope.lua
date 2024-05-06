@@ -78,7 +78,7 @@ local config = function()
             prompt_prefix = icons.ui.Telescope .. icons.ui.ChevronRight,
             selection_caret = icons.ui.Play,
             multi_icon = icons.ui.Check,
-            path_display = { 'smart' },
+            -- path_display = { 'smart' }, -- this was slowing the whole telescope down by huge amount.
             sorting_strategy = 'ascending',
 
             mappings = {
@@ -178,7 +178,7 @@ local config = function()
     })
 
     require('telescope').load_extension('fzf')
-    require('telescope').load_extension('menufacture')
+    -- require('telescope').load_extension('menufacture')
     require('telescope').load_extension('undo')
     -- require('telescope').load_extension('harpoon')
     require('telescope').load_extension('notify')

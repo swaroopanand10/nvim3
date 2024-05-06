@@ -10,12 +10,12 @@ end
 
 local plugins = {
     -- UI
-    {
-        'navarasu/onedark.nvim',
-        config = load_config('ui.onedark'),
-        lazy = false,
-        priority = 1000,
-    },
+    -- {
+    --     'navarasu/onedark.nvim',
+    --     config = load_config('ui.onedark'),
+    --     lazy = false,
+    --     priority = 1000,
+    -- },
     -- {
     --     'rose-pine/neovim',
     --     config = load_config('ui.rosepine'),
@@ -28,6 +28,12 @@ local plugins = {
     --     lazy = false,
     --     priority = 1000,
     -- },
+    {
+        'swaroopanand10/coal2.nvim',
+        config = load_config('ui.coal2'),
+        lazy = false,
+        priority = 1000,
+    },
     {
         'nvim-lualine/lualine.nvim',
         config = load_config('ui.lualine'),
@@ -63,12 +69,12 @@ local plugins = {
         -- event = { 'VeryLazy' },
         event = { 'LazyFile' },
     },
-    {
-        'HiPhish/rainbow-delimiters.nvim',
-        config = load_config('ui.rainbow'),
-        -- event = { 'VeryLazy' },
-        event = { 'LazyFile' },
-    },
+    -- {
+    --     'HiPhish/rainbow-delimiters.nvim',
+    --     config = load_config('ui.rainbow'),
+    --     -- event = { 'VeryLazy' },
+    --     event = { 'LazyFile' },
+    -- },
     {
         'rcarriga/nvim-notify',
         config = load_configs('ui.notify').config,
@@ -83,28 +89,10 @@ local plugins = {
         event = { 'LazyFile' },
     },
     {
-        'uga-rosa/ccc.nvim', -- currently not working for some reason in every neovim
+        'uga-rosa/ccc.nvim',
         cmd = { 'CccHighlighterToggle', 'CccConvert', 'CccPick' },
-        keys = {
-            {
-                '<leader>jC',
-                '<cmd>CccPick<cr>',
-                silent = true,
-                desc = 'Ccc Pick',
-            },
-            {
-                '<leader>jc',
-                '<cmd>CccHighlighterToggle<cr>',
-                silent = true,
-                desc = 'Ccc highlight toggle',
-            },
-            {
-                '<leader>jp',
-                '<cmd>CccPick<cr>',
-                silent = true,
-                desc = 'Ccc highlight toggle',
-            },
-        },
+        config = load_configs('ui.ccc').config,
+        keys = load_configs('ui.ccc').keys,
     },
     {
         'nvimdev/dashboard-nvim',
@@ -271,6 +259,11 @@ local plugins = {
         event = 'VeryLazy',
         -- event = { 'BufReadPre', 'BufNewFile' },
     },
+    -- {
+    --     'mrcjkb/rustaceanvim',
+    --     version = '^4', -- Recommended
+    --     lazy = false, -- This plugin is already lazy
+    -- },
     -- {
     --     'nvimtools/none-ls.nvim',
     --     dependencies = { 'neovim/nvim-lspconfig', 'jay-babu/mason-null-ls.nvim' },

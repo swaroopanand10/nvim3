@@ -16,7 +16,7 @@ lsp_zero.on_attach(function(client, bufnr)
         require('telescope.builtin').lsp_implementations({ reuse_win = true })
     end, { desc = 'Goto Implementation', buffer = bufnr })
 
-    -- -- vim.keymap.set('n', 'K', ':Lspsaga hover_doc<cr>', { desc = 'lspsaga hover doc', silent = true })
+    -- vim.keymap.set('n', 'K', ':Lspsaga hover_doc<cr>', { desc = 'lspsaga hover doc', silent = true })
 
     -- Enabled inlay hints
     if client.server_capabilities.inlayHintProvider then
@@ -85,6 +85,8 @@ require('mason-lspconfig').setup({
     handlers = {
         -- This option does automatic setup for every lsp server mentioned in 'ensure_installed' with default setup.
         lsp_zero.default_setup,
+
+        -- rust_analyzer = lsp_zero.noop, -- we can disable a language server like this
 
         -- But if we want a custom configuration for a server, then we can do it explicitly like this
 

@@ -11,7 +11,7 @@ local textobjects = require('plugins.lang.textobjects')
 configs.setup({
     ensure_installed = installed_parsers,
     sync_install = false,
-    ignore_install = { 'zig' },
+    ignore_install = { 'zig', 'tmux' },
     auto_install = true,
 
     textobjects = textobjects,
