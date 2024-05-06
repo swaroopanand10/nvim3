@@ -69,6 +69,17 @@ local plugins = {
         -- event = { 'VeryLazy' },
         event = { 'LazyFile' },
     },
+    -- { -- not needed
+    --     'echasnovski/mini.indentscope',
+    --     config = function()
+    --         require('mini.indentscope').setup({
+    --             symbol = '│',
+    --             options = { try_as_border = true },
+    --         })
+    --     end,
+    --     version = '*',
+    --     event = 'LazyFile',
+    -- },
     -- {
     --     'HiPhish/rainbow-delimiters.nvim',
     --     config = load_config('ui.rainbow'),
