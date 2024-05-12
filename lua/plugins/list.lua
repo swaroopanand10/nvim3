@@ -10,24 +10,24 @@ end
 
 local plugins = {
     -- UI
-    -- {
-    --     'navarasu/onedark.nvim',
-    --     config = load_config('ui.onedark'),
-    --     lazy = false,
-    --     priority = 1000,
-    -- },
-    -- {
-    --     'rose-pine/neovim',
-    --     config = load_config('ui.rosepine'),
-    --     lazy = false,
-    --     priority = 1000,
-    -- },
-    -- {
-    --     'folke/tokyonight.nvim',
-    --     config = load_config('ui.tokyonight'),
-    --     lazy = false,
-    --     priority = 1000,
-    -- },
+    {
+        'navarasu/onedark.nvim',
+        config = load_config('ui.onedark'),
+        -- lazy = false,
+        -- priority = 1000,
+    },
+    {
+        'rose-pine/neovim',
+        config = load_config('ui.rosepine'),
+        -- lazy = false,
+        -- priority = 1000,
+    },
+    {
+        'folke/tokyonight.nvim',
+        config = load_config('ui.tokyonight'),
+        -- lazy = false,
+        -- priority = 1000,
+    },
     {
         'swaroopanand10/coal2.nvim',
         config = load_config('ui.coal2'),
@@ -374,6 +374,15 @@ local plugins = {
         },
         config = load_config('tools.nvim-tree'),
         cmd = 'NvimTreeToggle',
+    },
+    {
+        'mikavilpas/yazi.nvim',
+        dependencies = {
+            'nvim-lua/plenary.nvim',
+        },
+        event = 'LazyFile',
+        config = load_configs('tools.yazi').config,
+        keys = load_configs('tools.yazi').keys,
     },
     {
         'folke/persistence.nvim',
