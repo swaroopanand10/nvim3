@@ -30,8 +30,20 @@ local config = function()
             col = 'auto',
             border = 'double',
         },
+        -- per_buffer_config = {
+        --     lines = 4, -- Number of lines showed on preview.
+        --     sort_automatically = true, -- Auto sort buffer marks.
+        --     satellite = { -- defualt to nil, display arrow index in scrollbar at every update
+        --         enable = false,
+        --         overlap = true,
+        --         priority = 1000,
+        --     },
+        --     zindex = 10, --default 50
+        --     treesitter_context = nil, -- it can be { line_shift_down = 2 }, currently not usable, for detail see https://github.com/otavioschwanck/arrow.nvim/pull/43#issue-2236320268
+        -- },
         separate_save_and_remove = true, -- if true, will remove the toggle and create the save/remove keymaps.
         leader_key = ';',
+        -- buffer_leader_key = '-', -- Per Buffer Mappings
         global_bookmarks = false, -- if true, arrow will save files globally (ignores separate_by_branch)
         -- index_keys = '123456789zxcbnmZXVBNM,afghjklAFGHJKLwrtyuiopWRTYUIOP', -- keys mapped to bookmark index, i.e. 1st bookmark will be accessible by 1, and 12th - by c
         index_keys = 'asdfghjklrzxcni123456789uo', -- keys mapped to bookmark index, i.e. 1st bookmark will be accessible by 1, and 12th - by c
@@ -46,6 +58,13 @@ local keys = {
         -- end,
         desc = 'arrow nvim',
     },
+    -- {
+    --     '-',
+    --     -- function()
+    --     --     -- print("hello")
+    --     -- end,
+    --     desc = 'arrow nvim',
+    -- },
 }
 M.config = config
 M.keys = keys

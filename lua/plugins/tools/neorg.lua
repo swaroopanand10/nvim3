@@ -104,11 +104,13 @@ local opts = {
                     os = '~/notes/os',
                     wayland = '~/notes/wayland',
                     gtk = '~/notes/gtk',
+                    gtkmm = '~/notes/gtkmm',
                     unix = '~/notes/unix',
                     js = '~/notes/js',
                     css = '~/notes/css',
                     cf = '~/notes/cf',
                     linux = '~/notes/linux',
+                    projects = '~/notes/projects',
                 },
                 default_workspace = nil, -- doing this is best as it puts us in workspace of current dir
                 index = 'index.norg',
