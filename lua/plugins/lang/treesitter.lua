@@ -6,15 +6,15 @@ if auto_install then
     installed_parsers = require('plugins.list').ts_parsers
 end
 
-local textobjects = require('plugins.lang.textobjects')
+-- local textobjects = require('plugins.lang.textobjects') -- this was slowing down zig files, so I will disable it when using zig
 
 configs.setup({
     ensure_installed = installed_parsers,
     sync_install = false,
-    ignore_install = { 'zig', 'tmux' },
+    ignore_install = {  'tmux' },
     auto_install = true,
 
-    textobjects = textobjects,
+    -- textobjects = textobjects, -- was slowing down zig and anyway don't need it much
     autopairs = { enable = true },
     -- endwise = { enable = true },
     autotag = { enable = true },

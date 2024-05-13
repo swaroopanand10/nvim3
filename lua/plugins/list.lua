@@ -183,7 +183,7 @@ local plugins = {
         build = ':TSUpdate',
         dependencies = {
             -- 'nvim-treesitter/nvim-treesitter-refactor',
-            'nvim-treesitter/nvim-treesitter-textobjects',
+            -- 'nvim-treesitter/nvim-treesitter-textobjects',
             -- 'RRethy/nvim-treesitter-endwise',
             -- 'RRethy/nvim-treesitter-textsubjects',
         },
