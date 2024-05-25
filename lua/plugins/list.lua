@@ -399,14 +399,9 @@ local plugins = {
             },
         },
     },
-    -- {
-    --     'olimorris/persisted.nvim',
-    --     event = 'BufEnter',
-    --     config = load_config('tools.persisted'),
-    -- },
     {
-        'numToStr/Comment.nvim',
-        config = load_config('tools.comment'),
+        'echasnovski/mini.comment',
+        version = false,
         keys = {
             {
                 'gcc',
@@ -425,6 +420,7 @@ local plugins = {
                 desc = 'Comment',
             },
         },
+        config = true,
     },
     {
         'nvim-neorg/neorg',
