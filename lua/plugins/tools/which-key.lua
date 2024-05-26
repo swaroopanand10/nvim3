@@ -166,8 +166,16 @@ local config = function()
             -- l = { '<cmd>:g/^\\s*$/d<cr>', 'Clean Empty Lines' },
             n = { '<cmd>set relativenumber!<cr>', 'Relative Numbers' },
             N = { '<cmd>Telescope notify<cr>', 'Notifications' },
-            l = { '<cmd>Telescope reloader<cr>', 'Reload Module' },
-            R = { '<cmd>ReloadConfig<cr>', 'Reload Configs' },
+            l = { '<cmd>LspStop<cr>', 'Lsp stop' },
+            L = { '<cmd>LspStart<cr>', 'Lsp start' },
+            -- R = { '<cmd>ReloadConfig<cr>', 'Reload Configs' },
+            h = {
+                function()
+                    vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+                end,
+                'Toggle inlay hints',
+            },
+
             m = { '<cmd>MarkdownPreviewToggle<cr>', 'Markdown Preview' },
             w = {
                 function()
