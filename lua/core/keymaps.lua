@@ -154,15 +154,6 @@ map('n', '<leader>ja', function()
     end
 end, { desc = 'toggle lineno on all windows', silent = true })
 
--- if vim.lsp.buf.inlay_hint or vim.lsp.inlay_hint then
---     map('n', '<leader>uh', function()
---         Util.toggle.inlay_hints()
---     end, { desc = 'Toggle Inlay Hints' })
--- end
-
--- Stopping lsp
-map('n', '<leader>jL', '<cmd>LspStop<cr>', { desc = 'stop lsp', silent = true })
-
 -- Nvim-cmp goint to next line without selecting any entry
 map('i', '<A-cr>', '<c-j>', { desc = 'abort cmp then press enter', silent = true })
 
