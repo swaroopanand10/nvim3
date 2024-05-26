@@ -20,7 +20,7 @@ lsp_zero.on_attach(function(client, bufnr)
 
     -- Enabled inlay hints
     if client.server_capabilities.inlayHintProvider then
-        vim.lsp.inlay_hint.enable(bufnr, true)
+        vim.lsp.inlay_hint.enable(true) -- currently this is the correct one
     end
 end)
 
