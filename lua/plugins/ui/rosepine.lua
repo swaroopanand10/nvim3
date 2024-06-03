@@ -26,8 +26,13 @@ rosepine.setup({
             bg = '#000000',
             fg = '#000000',
         },
+        TreesitterContext = {
+            -- bg = visualdark,
+            bg = 'none',
+        },
         TreesitterContextBottom = {
             underline = true,
+            bold = true,
         },
         FlashBackdrop = { fg = '#545c7e' },
         FlashLabel = {
@@ -58,7 +63,7 @@ rosepine.setup({
     },
 })
 -- rosepine.load()
-vim.cmd("colorscheme rose-pine")
+vim.cmd('colorscheme rose-pine')
 
 -- transparent background
 vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })

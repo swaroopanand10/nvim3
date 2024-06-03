@@ -19,8 +19,8 @@ local plugins = {
     {
         'rose-pine/neovim',
         config = load_config('ui.rosepine'),
-        -- lazy = false,
-        -- priority = 1000,
+        lazy = false,
+        priority = 1000,
     },
     {
         'folke/tokyonight.nvim',
@@ -31,8 +31,8 @@ local plugins = {
     {
         'swaroopanand10/coal2.nvim',
         config = load_config('ui.coal2'),
-        lazy = false,
-        priority = 1000,
+        -- lazy = false,
+        -- priority = 1000,
     },
     {
         'nvim-lualine/lualine.nvim',

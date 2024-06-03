@@ -61,6 +61,7 @@ local options = {
     wrap = false, -- display lines as one long line
     writebackup = false, -- do not edit backups
     guicursor = 'n-v-c:block-Cursor,i-ci-ve:ver25-Cursor,r-cr-o:hor20-Cursor,a:blinkon100',
+    fillchars = { eob = ' ' },
 }
 
 -- vim.cmd([[
