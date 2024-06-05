@@ -5,9 +5,7 @@ local config = function()
         show_prompt = false,
     }
     require('window-picker').setup(opts)
-    -- keymaps for manupulating window using nvim_window_picker
 end
--- local map = vim.keymap.set
 local keys = {
     {
         '<leader>jww',

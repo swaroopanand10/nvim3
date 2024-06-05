@@ -333,16 +333,12 @@ local config = function()
             v = { "<cmd>lua require('refactoring').refactor('Extract Variable')<CR>", 'Extract Variable' },
             w = { "<cmd>lua require('spectre').open_visual({select_word=true})<cr>", 'Replace Word spectre' },
         },
-        t = {
-            name = icons.ui.Terminal .. 'Terminal',
-            ['`'] = { '<cmd>Sterm<cr>', 'Horizontal Terminal' },
-            n = { '<cmd>Sterm node<cr>', 'Node' },
-            p = { '<cmd>Sterm bpython<cr>', 'Python' },
-            r = { '<cmd>Sterm irb<cr>', 'Ruby' },
-            s = { '<cmd>Sterm<cr>', 'Horizontal Terminal' },
-            t = { '<cmd>Fterm<cr>', 'Terminal' },
-            v = { '<cmd>Vterm<cr>', 'Vertical Terminal' },
-        },
+        -- t = {
+        --     name = icons.ui.Terminal .. 'colorscheme',
+        --     t = { '<cmd>colorscheme tokyonight<cr>', 'tokyonight' },
+        --     c = { '<cmd>colorscheme coal<cr>', 'coal2' },
+        --     r = { '<cmd>colorscheme rose-pine<cr>', 'rose-pine' },
+        -- },
         i = {
             name = icons.ui.Note .. 'Neorg',
         },

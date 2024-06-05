@@ -99,6 +99,7 @@ local opts = {
                     cppprg = '~/notes/cppprg',
                     networking = '~/notes/networking',
                     comparch = '~/notes/comparch',
+                    computing = '~/notes/computing',
                     rs = '~/notes/rs',
                     asm = '~/notes/asm',
                     os = '~/notes/os',

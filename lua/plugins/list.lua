@@ -240,9 +240,9 @@ local plugins = {
         event = { 'LazyFile' },
     },
     {
-        'folke/neodev.nvim',
-        ft = { 'lua', 'vim' },
-        config = load_config('lang.neodev'),
+        'folke/lazydev.nvim',
+        ft = 'lua', -- only load on lua files
+        -- config = load_config('lang.neodev'),
     },
     {
         'nvimdev/lspsaga.nvim',
@@ -331,7 +331,6 @@ local plugins = {
     -- Tools
     {
         'folke/trouble.nvim',
-        branch = 'dev',
         cmd = { 'Trouble' },
         opts = load_configs('tools.trouble').opts,
         keys = load_configs('tools.trouble').keys,
